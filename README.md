@@ -5,6 +5,6 @@ Repository for my Google Summer of Code project
 
 <p> Some of these structures, already exist implemented in Pharo, as a part of some other projects. But this will be the first library that will contain all of it in one place.</p>
 
-<p>I will be documenting progress on my blog [Pharokeepers](https://pharokeepers.github.io/) and with occasional [tweet](https://twitter.com/medicka992). </p>
+I will be documenting progress on my blog [Pharokeepers](https://pharokeepers.github.io/) and with occasional [tweet](https://twitter.com/medicka992) . 
 
-<p> You can read about Google Summer of Code on this link: [GSoC](https://summerofcode.withgoogle.com/), about [Pharo](https://pharo.org/) and if you are interested you can also read my [proposal](https://docs.google.com/document/d/1V8_HaZnxYsCfaiZs4vI1C5Dh4TvRPz-H51aYOuY9lFA/edit?usp=sharing) for this project.</p>
+<p> You can read about Google Summer of Code on this link: [GSoC](https://summerofcode.withgoogle.com/) , about [Pharo](https://pharo.org/) and if you are interested you can also read my [proposal](https://docs.google.com/document/d/1V8_HaZnxYsCfaiZs4vI1C5Dh4TvRPz-H51aYOuY9lFA/edit?usp=sharing) for this project.</p>
