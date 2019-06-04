@@ -8,8 +8,7 @@ Class {
 		'edges',
 		'vertices',
 		'directed',
-		'undirected',
-		'adjacencyList'
+		'undirected'
 	],
 	#category : #GraphStructure
 }
@@ -43,11 +42,17 @@ Graph >> addOnEdge: edge to: ver1 [
 ]
 
 { #category : #adding }
-Graph >> addVertex: value [ 
+Graph >> addVertex: vertex [ 
+	self vertices add: vertex
+]
+
+{ #category : #adding }
+Graph >> addVertexWithValue: value [ 
 	|tmp|
 	tmp := Vertex new.
 	tmp vertexValue: value.
-	self vertices add: tmp
+	self vertices add: tmp.
+	^tmp
 ]
 
 { #category : #adding }
@@ -61,11 +66,6 @@ Graph >> addingUndirectedEdgeFrom: ver1 to: ver2 [
 ]
 
 { #category : #getter }
-Graph >> adjacencyList [
-	^ adjacencyList
-]
-
-{ #category : #getter }
 Graph >> directed [ 
 	^directed
 ]
@@ -73,6 +73,17 @@ Graph >> directed [
 { #category : #setter }
 Graph >> directed: anBoolean [
 	directed := anBoolean
+]
+
+{ #category : #'checking existance' }
+Graph >> edgeExists: edge [
+	|tmp|
+	tmp := false.
+	edges do: [ :each| "(((edge fromVertex) = (each fromVertex)) & ((edge toVertex) = (each toVertex )))" (each equals: edge )
+		ifTrue: [ tmp :=true ] 
+		].
+	^tmp
+	
 ]
 
 { #category : #getter }
@@ -92,8 +103,7 @@ Graph >> initialize [
   	edges := Set new.
   	vertices := Set new.
 	directed := false.
-	undirected := false.
-  	adjacencyList := LinkedList new
+	undirected := false
 
 ]
 
@@ -111,7 +121,7 @@ Graph >> undirected: anBoolean [
 Graph >> vertexExists: vertix [
 	|tmp|
 	tmp := false.
-	vertices do: [ :each| (each vertexValue = vertix vertexValue )
+	vertices do: [ :each| ((each vertexValue) = (vertix vertexValue) )
 		ifTrue: [ tmp :=true ] 
 		].
 	^tmp

@@ -13,10 +13,8 @@ GraphTests >> testAddEdge [
 
 	|tmp v1 v2|
 	tmp := Graph new.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
 	tmp addEdgeFrom: v1 to: v2.
 	self assert: ((tmp edges size) = 1)
 ]
@@ -27,14 +25,10 @@ GraphTests >> testAddEdges [
 
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	self assert: (((tmp vertices size) = 4) & ((tmp edges size) = 2))
@@ -46,14 +40,10 @@ GraphTests >> testAddInNeighborhood [
 
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
@@ -68,14 +58,10 @@ GraphTests >> testAddNeighborhoodUndirected [
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
 	tmp undirected: true.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
@@ -89,14 +75,10 @@ GraphTests >> testAddOutNeighborhood [
 
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
@@ -108,9 +90,21 @@ GraphTests >> testAddOutNeighborhood [
 GraphTests >> testAddVertex [
   "Testing of adding a new Vertex."
 
-	|tmp|
+	|tmp v1|
+	v1 := Vertex new.
+	v1 vertexValue: 1.
 	tmp := Graph new.
-	tmp addVertex: 1.
+	tmp addVertex: v1.
+	self assert: ((tmp vertices size) = 1)
+]
+
+{ #category : #tests }
+GraphTests >> testAddVertexWithValue [
+  "Testing of adding a new Vertex with value given."
+
+	|tmp v1|
+	tmp := Graph new.
+	v1 := tmp addVertexWithValue: 1.
 	self assert: ((tmp vertices size) = 1)
 ]
 
@@ -118,12 +112,55 @@ GraphTests >> testAddVertex [
 GraphTests >> testAddVertices [
   "Testing of adding a couple new Vertex."
 
-	|tmp|
+	|tmp v1 v2 v3|
 	tmp := Graph new.
-	tmp addVertex: 1.
-	tmp addVertex: 2.
-	tmp addVertex: 3.
+	v1 := Vertex new.
+	v1 vertexValue: 1.
+	v2 := Vertex new.
+	v2 vertexValue: 2.
+	v3 := Vertex new.
+	v3 vertexValue: 3.
+	tmp addVertex: v1.
+	tmp addVertex: v2.
+	tmp addVertex: v3.
 	self assert: ((tmp vertices size) = 3)
+]
+
+{ #category : #tests }
+GraphTests >> testEdgeEquals [
+"Testing of a method that determends equality between edges."
+	|v1 v2 v3 e1 e2|
+	v1 := Vertex new.
+	v1 vertexValue: 1.
+	v2 := Vertex new.
+	v2 vertexValue: 2.
+	v3 := Vertex new.
+	v3 vertexValue: 3.
+	e1 := Edge new.
+	e1 fromVertex: v1;
+		toVertex: v2.
+	e2 := Edge new.
+	e2 fromVertex: v1;
+		toVertex: v2.
+	self assert: ((e1 equals: e2) = true)
+]
+
+{ #category : #tests }
+GraphTests >> testEdgeExist [
+  "Testing the existance of an edge in a set edges."
+
+	|tmp test v1 v2 v3|
+	tmp := Graph new.
+   v1 := tmp addVertexWithValue: 1.
+   v2 := tmp addVertexWithValue: 2.
+   v3 := tmp addVertexWithValue: 3.	
+	test := Edge new.
+	test fromVertex: v2;
+		  toVertex: v1.
+	tmp addEdgeFrom: v1 to: v2;
+		addEdgeFrom: v3 to: v2;
+		addEdgeFrom: v2 to: v1.
+	self assert: ((tmp edgeExists: test) = true)
 ]
 
 { #category : #tests }
@@ -132,14 +169,10 @@ GraphTests >> testInDegree [
 
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
@@ -162,7 +195,7 @@ GraphTests >> testInitGraph [
 
 	|tmp|
 	tmp := Graph new.
-	self deny: ((tmp edges = nil) & (tmp vertices = nil) & (tmp adjacencyList = nil))
+	self deny: ((tmp edges = nil) & (tmp vertices = nil))
 ]
 
 { #category : #tests }
@@ -180,14 +213,10 @@ GraphTests >> testOutDegree [
 
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
@@ -202,14 +231,10 @@ GraphTests >> testUndirectedDegree [
 	|tmp v1 v2 v3 v4|
 	tmp := Graph new.
 	tmp undirected: true.
-	v1 := Vertex new.
-	v1 vertexValue: 4.
-	v2 := Vertex new.
-	v2 vertexValue: 3.
-	v3 := Vertex new.
-	v3 vertexValue: 7.
-	v4 := Vertex new.
-	v4 vertexValue: 1.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
@@ -228,6 +253,8 @@ GraphTests >> testUndirectedGraph [
 	v1 vertexValue: 4.
 	v2 := Vertex new.
 	v2 vertexValue: 3.
+	tmp addVertex: v1;
+		addVertex: v2.
 	tmp addEdgeFrom: v1 to: v2.
 	self assert: ((tmp edges size) = 2)
 ]
@@ -240,8 +267,8 @@ GraphTests >> testVertexExist [
 	tmp := Graph new.
 	test := Vertex new.
 	test vertexValue: 2.
-	tmp addVertex: 1.
-	tmp addVertex: 2.
-	tmp addVertex: 3.
+	tmp addVertexWithValue: 1.
+	tmp addVertexWithValue: 2.
+	tmp addVertexWithValue: 3.
 	self assert: ((tmp vertexExists: test) = true)
 ]

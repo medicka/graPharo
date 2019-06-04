@@ -11,6 +11,17 @@ Class {
 	#category : #GraphStructure
 }
 
+{ #category : #'state machine' }
+Edge >> equals: edge [
+	|tmp|
+	tmp := false.
+	((self fromVertex) = (edge fromVertex ))
+	ifTrue: [ tmp := true ].
+	((self toVertex ) ~= (edge toVertex ))
+	ifTrue: [ tmp := false ].
+	^tmp
+]
+
 { #category : #getter }
 Edge >> fromVertex [
 	^from
