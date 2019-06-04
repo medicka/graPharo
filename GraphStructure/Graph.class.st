@@ -16,11 +16,16 @@ Class {
 
 { #category : #adding }
 Graph >> addEdgeFrom: ver1 to: ver2 [ 
-	|tmp|
+	|tmp tmp1|
 	tmp := Edge new.
 	self addOnEdge: tmp From: ver1. 
 	self addOnEdge: tmp to: ver2.
-	self edges add: tmp
+	ver1 addOutNeighbor: ver2.
+	ver2 addInNeighbor: ver1.
+	self edges add: tmp.
+	(self undirected )
+	ifTrue: [ self addingUndirectedEdgeFrom: ver2 to: ver1.]
+	
 ]
 
 { #category : #adding }
@@ -43,6 +48,16 @@ Graph >> addVertex: value [
 	tmp := Vertex new.
 	tmp vertexValue: value.
 	self vertices add: tmp
+]
+
+{ #category : #adding }
+Graph >> addingUndirectedEdgeFrom: ver1 to: ver2 [
+   |tmp1|
+	tmp1 := Edge new.
+	tmp1 fromVertex: ver1.
+	tmp1 toVertex: ver2.
+	"ver1 addOutNeighbor: ver2."
+	self edges add: tmp1
 ]
 
 { #category : #getter }
