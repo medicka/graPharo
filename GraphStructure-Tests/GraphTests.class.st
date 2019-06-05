@@ -272,3 +272,23 @@ GraphTests >> testVertexExist [
 	tmp addVertexWithValue: 3.
 	self assert: ((tmp vertexExists: test) = true)
 ]
+
+{ #category : #tests }
+GraphTests >> testVertexExistInSet [
+  "Testing the existance of a vertex in a given set."
+
+	|v1 v2 v3 test set|
+	set := Set new.
+	v1 := Vertex new.
+	v1 vertexValue: 1.
+	v2 := Vertex new.
+	v2 vertexValue: 2.
+	v3 := Vertex new.
+	v3 vertexValue: 3.
+	test := Vertex new.
+	test vertexValue: 2.
+	set add: v1;
+		add: v2;
+		add: v3. 
+	self assert: ((test vertexExistsIn: set) = true)
+]

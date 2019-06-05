@@ -75,6 +75,17 @@ Vertex >> printOn: ver1 [
 		 nextPut: $]
 ]
 
+{ #category : #containment }
+Vertex >> vertexExistsIn: aSet [
+	|tmp|
+	tmp := false.
+	aSet do: [ :each| ((each vertexValue) = (self vertexValue) )
+		ifTrue: [ tmp :=true ] 
+		].
+	^tmp
+	
+]
+
 { #category : #getter }
 Vertex >> vertexValue [ 
 	^vertexValue 
