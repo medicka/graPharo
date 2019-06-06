@@ -83,7 +83,7 @@ GraphTests >> testAddOutNeighborhood [
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
 	tmp addEdgeFrom: v3 to: v4.
-	self assert: (v4 outNeighborhood isEmpty= false)
+	self assert: ((v4 outNeighborhoodFromVertex: v4) isEmpty= false)
 ]
 
 { #category : #tests }
@@ -208,6 +208,17 @@ GraphTests >> testInitVertex [
 ]
 
 { #category : #tests }
+GraphTests >> testMeasureDimension [
+  "Testing of getting dimensions of a vertex."
+
+	|tmp v1 v2|
+	v1 := Vertex new.
+	v1 vertexValue: 4.
+	tmp := v1 measureDimensions: v1.
+	self assert: ((tmp at: #width ) = 10)
+]
+
+{ #category : #tests }
 GraphTests >> testOutDegree [
   "Testing of a method that calculates out degree of a vertex."
 
@@ -290,5 +301,5 @@ GraphTests >> testVertexExistInSet [
 	set add: v1;
 		add: v2;
 		add: v3. 
-	self assert: ((test vertexExistsIn: set) = true)
+	self assert: ((test vertexExists: test in: set) = true)
 ]

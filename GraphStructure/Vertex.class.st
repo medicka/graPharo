@@ -4,6 +4,8 @@ I represent one vertex(node) in a graph.
 Class {
 	#name : #Vertex,
 	#superclass : #Object,
+	#traits : 'TVertexTrait',
+	#classTraits : 'TVertexTrait classTrait',
 	#instVars : [
 		'vertexValue',
 		'outNeighborhood',
@@ -73,17 +75,6 @@ Vertex >> printOn: ver1 [
 	ver1 nextPut: $[;
 		 print: vertexValue ;
 		 nextPut: $]
-]
-
-{ #category : #containment }
-Vertex >> vertexExistsIn: aSet [
-	|tmp|
-	tmp := false.
-	aSet do: [ :each| ((each vertexValue) = (self vertexValue) )
-		ifTrue: [ tmp :=true ] 
-		].
-	^tmp
-	
 ]
 
 { #category : #getter }
