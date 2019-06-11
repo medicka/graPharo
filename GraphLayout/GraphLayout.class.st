@@ -10,3 +10,16 @@ Class {
 	],
 	#category : #GraphLayout
 }
+
+{ #category : #hook }
+GraphLayout >> doExecute: elements [ 
+	"Performs the layout"
+
+	self subclassResponsibility
+]
+
+{ #category : #hook }
+GraphLayout >> initialize [ 
+	super initialize.
+	translator := GraphTranslator default.
+]

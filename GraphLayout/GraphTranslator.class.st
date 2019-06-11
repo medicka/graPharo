@@ -7,8 +7,35 @@ Class {
 	#instVars : [
 		'view'
 	],
+	#classVars : [
+		'defaultTranslator'
+	],
 	#category : #GraphLayout
 }
+
+{ #category : #accessing }
+GraphTranslator class >> default [ 
+	"Return the default translator, the one used in the layouts"
+
+	defaultTranslator ifNotNil: [ ^ defaultTranslator ].
+	^ defaultTranslator := self defaultClass new
+]
+
+{ #category : #accessing }
+GraphTranslator class >> defaultClass [ 
+	^ self allSubclasses detect: #isDefault
+]
+
+{ #category : #'as yet unclassified' }
+GraphTranslator >> defaultTranslator [
+	^defaultTranslator
+]
+
+{ #category : #'public - translating' }
+GraphTranslator >> translate: element to: newPosition [ 
+	"Translate of the center of the element"
+	self subclassResponsibility 
+]
 
 { #category : #'public - translating' }
 GraphTranslator >> translate: element to: newPosition direction: aDirection [ 

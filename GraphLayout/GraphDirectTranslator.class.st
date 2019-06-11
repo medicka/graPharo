@@ -7,6 +7,11 @@ Class {
 	#category : #GraphLayout
 }
 
+{ #category : #testing }
+GraphDirectTranslator class >> isDefault [ 
+	^ true
+]
+
 { #category : #hook }
 GraphDirectTranslator >> translate: element to: newPosition [ 
 	element position: newPosition asFloatPoint

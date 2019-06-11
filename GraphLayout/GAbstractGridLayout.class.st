@@ -23,18 +23,6 @@ GAbstractGridLayout >> defaultLineItemsCount [
 ]
 
 { #category : #accessing }
-GAbstractGridLayout >> defaultLineItemsCount: elements [ 
-	
-			| height width |
-			(elements size < 3 )
-				ifTrue: [ (elements size max: 1) @ 1 ]
-				ifFalse: 
-					[ height := (elements size * 0.618034) sqrt ceiling truncated.
-					width := (elements size / height) ceiling truncated.
-					width @ height ] 
-]
-
-{ #category : #accessing }
 GAbstractGridLayout >> gapSize [ 
 	^ gapSize
 ]
@@ -57,9 +45,10 @@ GAbstractGridLayout >> setLineItemsCount: aVerticesGroup [
 	
 			| height width |
 			(aVerticesGroup  size < 3 )
-				ifTrue: [ ^(aVerticesGroup  size max: 1) @ 1 ]
+				ifTrue: [ lineItemsCountBlock := (aVerticesGroup  size max: 1) @ 1 ]
 				ifFalse: 
 					[ height := (aVerticesGroup  size * 0.618034) sqrt ceiling truncated.
 					width := (aVerticesGroup  size / height) ceiling truncated.
-					^width @ height ] 
+					lineItemsCountBlock := width @ height ].
+			^lineItemsCountBlock 
 ]

@@ -43,8 +43,31 @@ TreeLayoutTests >> testComputeChildrenFor [
 ]
 
 { #category : #tests }
+TreeLayoutTests >> testDefault [
+"A test that checks if the default translator is set."
+	|translator|
+	translator := GraphTranslator default.
+	self deny: (translator defaultTranslator = nil)
+	
+]
+
+{ #category : #tests }
+TreeLayoutTests >> testDefaultTranslatorDirect [
+"A test that checks if the default translator is set to translator of a type GraphDirectTranslator."
+	|translator transClass|
+	translator := GraphTranslator default.
+	transClass := translator defaultTranslator class.
+	self assert: (transClass = GraphDirectTranslator )
+	
+]
+
+{ #category : #tests }
 TreeLayoutTests >> testDoExecuteGrid [
-"A test that checks execution of grid layout"
+"A test that checks execution of grid layout. For easier testing, we transfer the set of vertices to LinkedList, so we can have ordered collection. 
+For v4, expected result 15.0@20.0
+For v3, expected result 0.0@20.0
+For v2, expected result 15.0@0.0
+For v1, expected result 0.0@0.0"
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -54,12 +77,14 @@ TreeLayoutTests >> testDoExecuteGrid [
 	gr addEdgeFrom: v3 to: v1;
 		addEdgeFrom: v3 to: v4;
 		addEdgeFrom: v4 to: v2.
-	used := Set new.
-	used add: v1.
+	used := LinkedList new.
+	used add: v1;
+		add: v2;
+		add: v3;
+		add: v4.
 	layout :=GraphGridLayout  new.
-	layout setLineItemsCount: (gr vertices ).
-	layout doExecute: (gr vertices ).
-	self assert: ((v1 pointer) = 0@0)
+	layout doExecute: (used ).
+	self assert: ((v2 position) = (15.0@0.0))
 ]
 
 { #category : #tests }
@@ -77,17 +102,20 @@ TreeLayoutTests >> testGridSetLineItemsCount [
 
 { #category : #tests }
 TreeLayoutTests >> testGridSetLineItemsCountMoreThan3 [ 
-"A test that checks initialization of lineClountItemsBlock variable."
-	|tmp graph v1 v2 v3 v4 point test|
+"A test that checks initialization of lineClountItemsBlock variable, whe we have more than three vertices..
+Expected result 3@3"
+	|tmp graph v1 v2 v3 v4 v5 v6 v7 point|
 	graph := Graph new.
 	v1 := graph addVertexWithValue: 1.
 	v2 := graph addVertexWithValue: 2.
 	v3 := graph addVertexWithValue: 3.
 	v4 := graph addVertexWithValue: 4.
-	test := 2@2.
+	v5 := graph addVertexWithValue: 5.
+	v6 := graph addVertexWithValue: 6.
+	v7 := graph addVertexWithValue: 7.
 	tmp := GAbstractGridLayout new.
 	point := tmp setLineItemsCount: (graph vertices ).
-	self assert: (point = test)
+	self assert: (point = (3@3))
 ]
 
 { #category : #tests }

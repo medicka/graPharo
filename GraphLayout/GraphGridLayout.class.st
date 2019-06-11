@@ -14,7 +14,7 @@ GraphGridLayout >> doExecute: elements [
 	originalGapTop := 0.
 	
 	pointer := originalGapLeft @ originalGapTop.
-	lineItemSize := self lineItemsCountBlock.
+	lineItemSize := self setLineItemsCount: elements.
 	lineItemCount := 0.
 	maxLastLineHeight := 0.
 
