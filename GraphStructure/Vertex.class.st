@@ -3,9 +3,7 @@ I represent one vertex(node) in a graph.
 "
 Class {
 	#name : #Vertex,
-	#superclass : #Object,
-	#traits : 'TVertexTrait',
-	#classTraits : 'TVertexTrait classTrait',
+	#superclass : #AbstractVertex,
 	#instVars : [
 		'vertexValue',
 		'outNeighborhood',
@@ -46,6 +44,8 @@ Vertex >> initialize [
 	vertexValue := 0.
 	outNeighborhood := Set new.
 	inNeighborhood  := Set new.
+	position := 0@0
+	
 ]
 
 { #category : #getter }

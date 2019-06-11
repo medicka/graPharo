@@ -57,6 +57,7 @@ TreeLayoutTests >> testDoExecuteGrid [
 	used := Set new.
 	used add: v1.
 	layout :=GraphGridLayout  new.
+	layout setLineItemsCount: (gr vertices ).
 	layout doExecute: (gr vertices ).
 	self assert: ((v1 pointer) = 0@0)
 ]
@@ -111,4 +112,20 @@ TreeLayoutTests >> testInitializeTreeL [
 	|tmp|
 	tmp := GraphTreeLayout new.
 	self deny: (tmp alreadyLayoutedVertices = nil)
+]
+
+{ #category : #tests }
+TreeLayoutTests >> testTranslateTopLeft [
+"A test that checks if the translation is done properly. We invoce the translation from top left corner of element."
+	|gr v1 v2 v3 v4 layout translator test|
+	gr := Graph new.
+	v1 := gr addVertexWithValue: 1.
+	v2 := gr addVertexWithValue: 2.
+	v3 := gr addVertexWithValue: 3.
+	v4 := gr addVertexWithValue: 4.
+	test :=2@1.
+	layout :=GraphGridLayout  new.
+	translator := GraphDirectTranslator new.
+	translator translateTopLeftOf: v1 to: test.
+	self assert: ((v1 position ) = (2@1))
 ]

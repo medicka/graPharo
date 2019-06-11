@@ -236,6 +236,16 @@ GraphTests >> testOutDegree [
 ]
 
 { #category : #tests }
+GraphTests >> testPosition [
+"Testing of changing position variable of a vertex."
+|vertex test|
+vertex := Vertex new.
+test := 2@7.
+vertex position: test.
+self assert: ((vertex position) = (2@7))
+]
+
+{ #category : #tests }
 GraphTests >> testUndirectedDegree [
   "Testing of a method that calculates degree of a vertex in an undirected graph."
 
