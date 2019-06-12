@@ -9,7 +9,10 @@ Class {
 
 { #category : #tests }
 TreeLayoutTests >> testChildrenForExcept [
-"A test that checks computing children(out neighbors) for given vertex, exept the ones we already layouted."
+	"A test that checks computing children(out neighbors) for given vertex, except the ones we already 	layouted.
+	For vertex v3 in this set of 4 vertices, of wich we used already v1, expected result is 1.
+	For vertex v4 in this set of 4 vertices, of wich we used already v1, expected result is 0."
+	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -18,17 +21,19 @@ TreeLayoutTests >> testChildrenForExcept [
 	v4 := gr addVertexWithValue: 4.
 	gr addEdgeFrom: v3 to: v1;
 		addEdgeFrom: v3 to: v4;
-		addEdgeFrom: v4 to: v2.
+		addEdgeFrom: v4 to: v1.
 	used := Set new.
 	used add: v1.
 	layout :=GraphTreeLayout new.
-	"layout alreadyLayoutedVertices add: v1."
-	self assert: ((layout childrenFor: v3 except: used) size = 1)
+	self assert: (layout childrenFor: v4 except: used) size equals: 0
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testComputeChildrenFor [
-"A test that checks computing children(out neighbors) for given vertex."
+	"A test that checks computing children(out neighbors) for given vertex.
+	For vertex v3 in this set of 4 vertices, expected result is 2.
+	For vertex v4 in this set of 4 vertices, expected result is 1."
+	
 	|gr v1 v2 v3 v4 layout|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -44,30 +49,34 @@ TreeLayoutTests >> testComputeChildrenFor [
 
 { #category : #tests }
 TreeLayoutTests >> testDefault [
-"A test that checks if the default translator is set."
+	"A test that checks if the default translator is set.
+	Explected result is not nil."
+	
 	|translator|
 	translator := GraphTranslator default.
-	self deny: (translator defaultTranslator = nil)
+	self deny: (translator defaultTranslator isNil)
 	
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testDefaultTranslatorDirect [
-"A test that checks if the default translator is set to translator of a type GraphDirectTranslator."
-	|translator transClass|
+	"A test that checks if the default translator is set to translator of a type GraphDirectTranslator.
+	Expected result is GraphDirectTranslator."
+	
+	|translator|
 	translator := GraphTranslator default.
-	transClass := translator defaultTranslator class.
-	self assert: (transClass = GraphDirectTranslator )
+	self assert: (translator defaultTranslator class) equals: GraphDirectTranslator 
 	
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testDoExecuteGrid [
-"A test that checks execution of grid layout. For easier testing, we transfer the set of vertices to LinkedList, so we can have ordered collection. 
-For v4, expected result 15.0@20.0
-For v3, expected result 0.0@20.0
-For v2, expected result 15.0@0.0
-For v1, expected result 0.0@0.0"
+	"A test that checks execution of grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. 
+	For v4, expected result 15.0@20.0 .
+	For v3, expected result 0.0@20.0 .
+	For v2, expected result 15.0@0.0 .
+	For v1, expected result 0.0@0.0 ." 
+	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -83,77 +92,87 @@ For v1, expected result 0.0@0.0"
 		add: v3;
 		add: v4.
 	layout :=GraphGridLayout  new.
-	layout doExecute: (used ).
-	self assert: ((v2 position) = (15.0@0.0))
+	layout doExecute: (used).
+	self assert: (v2 position) equals: (15.0@0.0)
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testGridSetLineItemsCount [ 
-"A test that checks initialization of lineClountItemsBlock variable."
-	|tmp graph v1 v2 point test|
+	"A test that checks setting of lineClountItemsBlock variable.
+	In case od only two vertices, expected result is 2@1. "
+	
+	|tmp graph|
 	graph := Graph new.
-	v1 := graph addVertexWithValue: 1.
-	v2 := graph addVertexWithValue: 2.
-	test := 2@1.
+	graph addVertexWithValue: 1;
+		addVertexWithValue: 2.
 	tmp := GAbstractGridLayout new.
-	point := tmp setLineItemsCount: (graph vertices ).
-	self assert: (point = test)
+	self assert: (tmp setLineItemsCount: (graph vertices)) equals: (2@1)
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testGridSetLineItemsCountMoreThan3 [ 
-"A test that checks initialization of lineClountItemsBlock variable, whe we have more than three vertices..
-Expected result 3@3"
-	|tmp graph v1 v2 v3 v4 v5 v6 v7 point|
+	"A test that checks setting of lineClountItemsBlock variable, when we have more than three 	vertices.
+	Expected result is 3@3"
+	
+	|tmp graph|
 	graph := Graph new.
-	v1 := graph addVertexWithValue: 1.
-	v2 := graph addVertexWithValue: 2.
-	v3 := graph addVertexWithValue: 3.
-	v4 := graph addVertexWithValue: 4.
-	v5 := graph addVertexWithValue: 5.
-	v6 := graph addVertexWithValue: 6.
-	v7 := graph addVertexWithValue: 7.
+	graph addVertexWithValue: 1;
+		addVertexWithValue: 2;
+		addVertexWithValue: 3;
+		addVertexWithValue: 4;
+		addVertexWithValue: 5;
+		addVertexWithValue: 6;
+		addVertexWithValue: 7.
 	tmp := GAbstractGridLayout new.
-	point := tmp setLineItemsCount: (graph vertices ).
-	self assert: (point = (3@3))
+	self assert: (tmp setLineItemsCount: (graph vertices)) equals: (3@3)
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testInitializeAbstractGridL [ 
-"A test that checks initialization of GAbstractGridLayout object."
+	"A test that checks initialization of GAbstractGridLayout object.
+	Expected result is defalut value 5 set to gapSize."
+	
 	|tmp|
 	tmp := GAbstractGridLayout  new.
-	self assert: (tmp gapSize  = 5)
+	self assert: (tmp gapSize) equals: 5
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testInitializeAbstractGridLineItems [ 
-"A test that checks initialization of lineClountItemsBlock variable."
+	"A test that checks initialization of lineClountItemsBlock variable.
+	Expected result is default value 10."
+	
 	|tmp|
 	tmp := GAbstractGridLayout  new.
-	self assert: (tmp lineItemsCountBlock = 10)
+	self assert: (tmp lineItemsCountBlock) equals: 10
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testInitializeTreeL [ 
-"A test that checks initialization of GraphTreeLayout object."
+	"A test that checks initialization of GraphTreeLayout object.
+	Expected result is variable alreadyLayoutedVertices is not nil."
+	
 	|tmp|
 	tmp := GraphTreeLayout new.
-	self deny: (tmp alreadyLayoutedVertices = nil)
+	self deny: (tmp alreadyLayoutedVertices) isNil
 ]
 
 { #category : #tests }
 TreeLayoutTests >> testTranslateTopLeft [
-"A test that checks if the translation is done properly. We invoce the translation from top left corner of element."
-	|gr v1 v2 v3 v4 layout translator test|
+	"A test that checks if the translation is done properly. We invoke the translation from top left 	corner of element.
+	Expected result is new position for each vertex.
+	For v1 is 2@1.
+	For v2 is 3@6.
+	For v3 is 0@5.
+	For v4 is 10@3."
+	
+	|gr v1 v2 v3 v4 translator|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
 	v2 := gr addVertexWithValue: 2.
 	v3 := gr addVertexWithValue: 3.
 	v4 := gr addVertexWithValue: 4.
-	test :=2@1.
-	layout :=GraphGridLayout  new.
 	translator := GraphDirectTranslator new.
-	translator translateTopLeftOf: v1 to: test.
-	self assert: ((v1 position ) = (2@1))
+	translator translateTopLeftOf: v2 to: (3@6).
+	self assert: (v2 position ) equals: (3@6)
 ]
