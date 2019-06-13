@@ -14,5 +14,9 @@ GraphDirectTranslator class >> isDefault [
 
 { #category : #hook }
 GraphDirectTranslator >> translate: element to: newPosition [ 
-	element position: newPosition asFloatPoint
+
+	|w h|
+	w:= newPosition x + (((element measureDimensions: element) at: #width)/2).
+	h:= newPosition y + (((element measureDimensions: element) at: #height)/2).
+	element position: w@h
 ]

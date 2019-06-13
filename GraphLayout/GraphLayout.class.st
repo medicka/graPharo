@@ -13,13 +13,15 @@ Class {
 
 { #category : #hook }
 GraphLayout >> doExecute: elements [ 
-	"Performs the layout"
+	"Performs the layout."
 
 	self subclassResponsibility
 ]
 
 { #category : #hook }
 GraphLayout >> initialize [ 
+	"Initializes the GraphLayout."
+	
 	super initialize.
 	translator := GraphTranslator default.
 ]

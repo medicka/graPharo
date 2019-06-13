@@ -7,7 +7,6 @@ Class {
 	#instVars : [
 		'edges',
 		'vertices',
-		'directed',
 		'undirected'
 	],
 	#category : #GraphStructure
@@ -15,39 +14,49 @@ Class {
 
 { #category : #adding }
 Graph >> addEdgeFrom: ver1 to: ver2 [ 
-	|tmp tmp1|
-	tmp := Edge new.
-	self addOnEdge: tmp From: ver1. 
-	self addOnEdge: tmp to: ver2.
+	"Addes new edge between given vertices."
+	
+	|edge|
+	edge := Edge new.
+	self addOnEdge: edge From: ver1; 
+		addOnEdge: edge to: ver2.
 	ver1 addOutNeighbor: ver2.
 	ver2 addInNeighbor: ver1.
-	self edges add: tmp.
-	(self undirected )
+	self edges add: edge.
+	(self undirected)
 	ifTrue: [ self addingUndirectedEdgeFrom: ver2 to: ver1.]
 	
 ]
 
 { #category : #adding }
 Graph >> addOnEdge: edge From: ver1 [
+	"Put ver1 as vertex from in given edge."
+	
 	(self vertexExists: ver1)
-	 	ifTrue: [ edge fromVertex: ver1 ]
-		ifFalse: [ self addVertex: (ver1 vertexValue) ]. 
+		ifFalse: [ self addVertex: (ver1 vertexValue)].
+	edge fromVertex: ver1 
 ]
 
 { #category : #adding }
 Graph >> addOnEdge: edge to: ver1 [
+	"Put ver1 as vertex to in given edge."
+	
 	(self vertexExists: ver1)
-	 	ifTrue: [ edge toVertex: ver1 ]
 		ifFalse: [ self addVertex: (ver1 vertexValue) ]. 
+	edge toVertex: ver1
 ]
 
 { #category : #adding }
 Graph >> addVertex: vertex [ 
+	"Addes given vertex to vertices."
+	
 	self vertices add: vertex
 ]
 
 { #category : #adding }
 Graph >> addVertexWithValue: value [ 
+	"Addes a new vertex made with given value to vertices."
+	
 	|tmp|
 	tmp := Vertex new.
 	tmp vertexValue: value.
@@ -57,29 +66,24 @@ Graph >> addVertexWithValue: value [
 
 { #category : #adding }
 Graph >> addingUndirectedEdgeFrom: ver1 to: ver2 [
+	"In undirected graph adding of edges."
+	
    |tmp1|
 	tmp1 := Edge new.
 	tmp1 fromVertex: ver1.
 	tmp1 toVertex: ver2.
-	"ver1 addOutNeighbor: ver2."
+	ver1 addOutNeighbor: ver2.
+	ver2 addInNeighbor: ver1.
 	self edges add: tmp1
-]
-
-{ #category : #getter }
-Graph >> directed [ 
-	^directed
-]
-
-{ #category : #setter }
-Graph >> directed: anBoolean [
-	directed := anBoolean
 ]
 
 { #category : #'checking existance' }
 Graph >> edgeExists: edge [
+	"Inspecting if given egde exists in graph."
+	
 	|tmp|
 	tmp := false.
-	edges do: [ :each| "(((edge fromVertex) = (each fromVertex)) & ((edge toVertex) = (each toVertex )))" (each equals: edge )
+	edges do: [ :each| (each equals: edge )
 		ifTrue: [ tmp :=true ] 
 		].
 	^tmp
@@ -98,11 +102,10 @@ Graph >> edges: anObject [
 
 { #category : #initialization }
 Graph >> initialize [ 
-  "Initialization of variables"
+  "Initialization of Graph objects."
 
   	edges := Set new.
   	vertices := Set new.
-	directed := false.
 	undirected := false
 
 ]
@@ -119,6 +122,8 @@ Graph >> undirected: anBoolean [
 
 { #category : #'checking existance' }
 Graph >> vertexExists: vertix [
+	"Inspects if given vertix exists in graph."
+	
 	|tmp|
 	tmp := false.
 	vertices do: [ :each| ((each vertexValue) = (vertix vertexValue) )

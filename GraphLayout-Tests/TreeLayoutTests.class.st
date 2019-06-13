@@ -71,11 +71,11 @@ TreeLayoutTests >> testDefaultTranslatorDirect [
 
 { #category : #tests }
 TreeLayoutTests >> testDoExecuteGrid [
-	"A test that checks execution of grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. 
-	For v4, expected result 15.0@20.0 .
-	For v3, expected result 0.0@20.0 .
-	For v2, expected result 15.0@0.0 .
-	For v1, expected result 0.0@0.0 ." 
+	"A test that checks execution of grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
+	For v4, expected result 20.0@27.5 .
+	For v3, expected result 5.0@27.5 .
+	For v2, expected result 20.0@7.5 .
+	For v1, expected result 5.0@7.5 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
@@ -93,7 +93,7 @@ TreeLayoutTests >> testDoExecuteGrid [
 		add: v4.
 	layout :=GraphGridLayout  new.
 	layout doExecute: (used).
-	self assert: (v2 position) equals: (15.0@0.0)
+	self assert: (v3 position) equals: (5.0@27.5)
 ]
 
 { #category : #tests }
@@ -160,11 +160,9 @@ TreeLayoutTests >> testInitializeTreeL [
 { #category : #tests }
 TreeLayoutTests >> testTranslateTopLeft [
 	"A test that checks if the translation is done properly. We invoke the translation from top left 	corner of element.
-	Expected result is new position for each vertex.
-	For v1 is 2@1.
-	For v2 is 3@6.
-	For v3 is 0@5.
-	For v4 is 10@3."
+	Expected result is new position for each vertex. Position is in the center of vertex.
+	For v1 if translated to 2@1 is 7@8.5.
+	For v2 if translated to 3@6 is 8@13.5."
 	
 	|gr v1 v2 v3 v4 translator|
 	gr := Graph new.
@@ -174,5 +172,5 @@ TreeLayoutTests >> testTranslateTopLeft [
 	v4 := gr addVertexWithValue: 4.
 	translator := GraphDirectTranslator new.
 	translator translateTopLeftOf: v2 to: (3@6).
-	self assert: (v2 position ) equals: (3@6)
+	self assert: (v2 position ) equals: (8@13.5)
 ]

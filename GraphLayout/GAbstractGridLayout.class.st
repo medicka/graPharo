@@ -13,11 +13,14 @@ Class {
 
 { #category : #accessing }
 GAbstractGridLayout >> defaultGapSize [ 
+	"Sets a default value (5) to the size of a gap between vertices."
+	
 	^ 5
 ]
 
 { #category : #accessing }
 GAbstractGridLayout >> defaultLineItemsCount [ 
+	"sets a default value for number of Vertices in one line."
 	
 	^ 10
 ]
@@ -29,6 +32,8 @@ GAbstractGridLayout >> gapSize [
 
 { #category : #accessing }
 GAbstractGridLayout >> initialize [ 
+	"Initializes AbstractGridLayout objects."
+	
 	super initialize.
 	gapSize := self defaultGapSize.
 	lineItemsCountBlock := self defaultLineItemsCount.
@@ -42,7 +47,8 @@ GAbstractGridLayout >> lineItemsCountBlock [
 
 { #category : #accessing }
 GAbstractGridLayout >> setLineItemsCount: aVerticesGroup [ 
-	
+	"Based on size of set of vertices of graph in question, calculates optimal number of vertices in one 	line."
+		
 			| height width |
 			(aVerticesGroup  size < 3 )
 				ifTrue: [ lineItemsCountBlock := (aVerticesGroup  size max: 1) @ 1 ]

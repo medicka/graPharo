@@ -13,6 +13,8 @@ Class {
 
 { #category : #'state machine' }
 Edge >> equals: edge [
+	"Compares self(edge on which we are working on) to edge."
+	
 	|tmp|
 	tmp := false.
 	((self fromVertex) = (edge fromVertex ))
@@ -34,6 +36,8 @@ Edge >> fromVertex: vertex [
 
 { #category : #initialization }
 Edge >> initialize [ 
+	"Initializes Edge objects."
+	
 	from := Vertex new.
 	to := Vertex new.
 ]

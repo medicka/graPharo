@@ -14,23 +14,29 @@ Class {
 
 { #category : #adding }
 Vertex >> addInNeighbor: vertex [
+	"Addes inNeighbor."
+	
   self inNeighborhood add: vertex
 ]
 
 { #category : #adding }
 Vertex >> addOutNeighbor: vertex [
+	"Addes outNeighbor."
+	
   self outNeighborhood add: vertex
 ]
 
 { #category : #getter }
 Vertex >> degree [
 	"Returns a degree of a vertex in an undirected graph."
+	
 	^(self neighborhood size)
 ]
 
 { #category : #getter }
 Vertex >> inDegree [
 	"Returns in degree of a vertex"
+	
 	^(self inNeighborhood size) 
 ]
 
@@ -41,27 +47,26 @@ Vertex >> inNeighborhood [
 
 { #category : #initialization }
 Vertex >> initialize [ 
+	"Initializes Vertex objects."
+
 	vertexValue := 0.
 	outNeighborhood := Set new.
 	inNeighborhood  := Set new.
-	position := 0@0
-	
+	position := (((self measureDimensions: self) at: #width)/2)@(((self measureDimensions: self) at: #height)/2)
 ]
 
 { #category : #getter }
 Vertex >> neighborhood [ 
 	"Returns a neighborhood for vertex of undirected graph"
-	|tmp|
-	tmp := Set new.
-	outNeighborhood do: [ :each| tmp add: each ].
-	inNeighborhood do: [ :each| tmp add: each ].
-   ^tmp
+	
+   ^outNeighborhood union: inNeighborhood
   
 ]
 
 { #category : #getter }
 Vertex >> outDegree [
 	"Returns out degree of a vertex"
+	
 	^(self outNeighborhood size) 
 ]
 
@@ -72,6 +77,7 @@ Vertex >> outNeighborhood [
 
 { #category : #printing }
 Vertex >> printOn: ver1 [ 
+
 	ver1 nextPut: $[;
 		 print: vertexValue ;
 		 nextPut: $]

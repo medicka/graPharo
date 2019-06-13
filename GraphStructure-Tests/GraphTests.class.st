@@ -69,7 +69,7 @@ GraphTests >> testAddNeighborhoodUndirected [
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
-	tmp addEdgeFrom: v3 to: v4.
+	tmp addingUndirectedEdgeFrom: v3 to: v4.
 	self assert: (v3 neighborhood isEmpty) equals: false
 ]
 
@@ -89,6 +89,20 @@ GraphTests >> testAddOutNeighborhood [
 	tmp addEdgeFrom: v4 to: v1.
 	tmp addEdgeFrom: v3 to: v4.
 	self assert: (v4 outNeighborhoodFromVertex: v4) isEmpty equals:  false
+]
+
+{ #category : #tests }
+GraphTests >> testAddUndirectedEdge [
+  "Testing of adding a new edge in undirected graph.
+	Expected result number of edges in garph is 1."
+
+	|tmp v1 v2|
+	tmp := Graph new.
+	tmp undirected.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	tmp addingUndirectedEdgeFrom: v1 to: v2.
+	self assert: (tmp edges size) equals:  1
 ]
 
 { #category : #tests }
@@ -298,7 +312,7 @@ GraphTests >> testUndirectedDegree [
 	tmp addEdgeFrom: v4 to: v2.
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
-	tmp addEdgeFrom: v3 to: v4.
+	tmp addingUndirectedEdgeFrom: v3 to: v4.
 	self assert: (v4 degree) equals: 3
 ]
 
