@@ -20,8 +20,8 @@ Graph >> addEdgeFrom: ver1 to: ver2 [
 	edge := Edge new.
 	self addOnEdge: edge From: ver1; 
 		addOnEdge: edge to: ver2.
-	ver1 addOutNeighbor: ver2.
-	ver2 addInNeighbor: ver1.
+	ver1 addOutNeighbour: ver2.
+	ver2 addInNeighbour: ver1.
 	self edges add: edge.
 	(self undirected)
 	ifTrue: [ self addingUndirectedEdgeFrom: ver2 to: ver1.]
@@ -72,8 +72,8 @@ Graph >> addingUndirectedEdgeFrom: ver1 to: ver2 [
 	tmp1 := Edge new.
 	tmp1 fromVertex: ver1.
 	tmp1 toVertex: ver2.
-	ver1 addOutNeighbor: ver2.
-	ver2 addInNeighbor: ver1.
+	ver1 addOutNeighbour: ver2.
+	ver2 addInNeighbour: ver1.
 	self edges add: tmp1
 ]
 

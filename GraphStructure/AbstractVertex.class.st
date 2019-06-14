@@ -12,6 +12,13 @@ Class {
 	#category : #GraphStructure
 }
 
+{ #category : #'as yet unclassified' }
+AbstractVertex >> outNeighbourhoodFromVertex: aVertex [
+	"Returns out neighborhood of a given vertex."
+	
+	^aVertex outNeighbourhood 
+]
+
 { #category : #accessing }
 AbstractVertex >> position [ 
 	^position

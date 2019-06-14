@@ -18,10 +18,10 @@ TVertexTrait >> measureDimensions: aVertex [
 ]
 
 { #category : #'as yet unclassified' }
-TVertexTrait >> outNeighborhoodFromVertex: aVertex [
+TVertexTrait >> outNeighbourhoodFromVertex: aVertex [
 	"Returns out neighborhood of a given vertex."
 	
-	^aVertex outNeighborhood 
+	^aVertex outNeighbourhood 
 ]
 
 { #category : #'as yet unclassified' }

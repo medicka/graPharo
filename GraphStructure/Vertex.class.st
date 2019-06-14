@@ -13,35 +13,35 @@ Class {
 }
 
 { #category : #adding }
-Vertex >> addInNeighbor: vertex [
+Vertex >> addInNeighbour: vertex [
 	"Addes inNeighbor."
 	
-  self inNeighborhood add: vertex
+  self inNeighbourhood add: vertex
 ]
 
 { #category : #adding }
-Vertex >> addOutNeighbor: vertex [
+Vertex >> addOutNeighbour: vertex [
 	"Addes outNeighbor."
 	
-  self outNeighborhood add: vertex
+  self outNeighbourhood add: vertex
 ]
 
 { #category : #getter }
 Vertex >> degree [
 	"Returns a degree of a vertex in an undirected graph."
 	
-	^(self neighborhood size)
+	^(self neighbourhood size)
 ]
 
 { #category : #getter }
 Vertex >> inDegree [
 	"Returns in degree of a vertex"
 	
-	^(self inNeighborhood size) 
+	^(self inNeighbourhood size) 
 ]
 
 { #category : #getter }
-Vertex >> inNeighborhood [
+Vertex >> inNeighbourhood [
 	^inNeighborhood 
 ]
 
@@ -56,7 +56,7 @@ Vertex >> initialize [
 ]
 
 { #category : #getter }
-Vertex >> neighborhood [ 
+Vertex >> neighbourhood [ 
 	"Returns a neighborhood for vertex of undirected graph"
 	
    ^outNeighborhood union: inNeighborhood
@@ -67,11 +67,11 @@ Vertex >> neighborhood [
 Vertex >> outDegree [
 	"Returns out degree of a vertex"
 	
-	^(self outNeighborhood size) 
+	^(self outNeighbourhood size) 
 ]
 
 { #category : #getter }
-Vertex >> outNeighborhood [
+Vertex >> outNeighbourhood [
 	^outNeighborhood 
 ]
 
