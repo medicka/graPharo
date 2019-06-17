@@ -52,7 +52,9 @@ Vertex >> initialize [
 	vertexValue := 0.
 	outNeighborhood := Set new.
 	inNeighborhood  := Set new.
-	position := (((self measureDimensions: self) at: #width)/2)@(((self measureDimensions: self) at: #height)/2)
+	height := 15.
+	width := 10.
+	position := (width/2)@(height/2)
 ]
 
 { #category : #getter }

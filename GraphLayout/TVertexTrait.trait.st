@@ -12,8 +12,8 @@ TVertexTrait >> measureDimensions: aVertex [
 	
 	|tmp|
 	tmp := Dictionary new.
-	tmp at: #width put: 10.
-	tmp at: #height put: 15.
+	tmp at: #width put: (aVertex width).
+	tmp at: #height put: (aVertex height).
 	^tmp
 ]
 
