@@ -42,6 +42,13 @@ Edge >> initialize [
 	to := Vertex new.
 ]
 
+{ #category : #initialization }
+Edge >> setFrom: aVertex1 to: aVertex2 [
+
+self fromVertex: aVertex1.
+self toVertex: aVertex2  
+]
+
 { #category : #getter }
 Edge >> toVertex [
 	^to

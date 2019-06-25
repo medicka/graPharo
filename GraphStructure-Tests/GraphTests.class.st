@@ -21,6 +21,21 @@ GraphTests >> testAddEdge [
 ]
 
 { #category : #tests }
+GraphTests >> testAddEdgeObject [
+  "Testing of adding a new edge.
+	Expected result number of edges in garph is 1."
+
+	|tmp v1 v2 e1|
+	tmp := Graph new.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	e1 := Edge new.
+	e1 setFrom: v1 to: v2.
+	tmp addEdgeObject: e1.
+	self assert: (tmp edges size) equals:  1
+]
+
+{ #category : #tests }
 GraphTests >> testAddEdges [
   "Testing of adding a couple of edges.
 	Expected result: vertices size is 4; egdes size is 2."

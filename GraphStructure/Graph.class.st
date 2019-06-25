@@ -29,6 +29,13 @@ Graph >> addEdgeFrom: ver1 to: ver2 [
 ]
 
 { #category : #adding }
+Graph >> addEdgeObject: anEdge [
+	"Addes given edge to vertices."
+	
+	self edges add: anEdge 
+]
+
+{ #category : #adding }
 Graph >> addOnEdge: edge From: ver1 [
 	"Put ver1 as vertex from in given edge."
 	

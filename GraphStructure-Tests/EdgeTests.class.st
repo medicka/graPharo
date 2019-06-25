@@ -37,3 +37,17 @@ EdgeTests >> testInitEdge [
 	tmp := Edge new.
 	self deny: ((tmp fromVertex isNil) & (tmp toVertex isNil))
 ]
+
+{ #category : #tests }
+EdgeTests >> testSetFromTo [
+	"This test is checking setting of edges ends."
+	
+	|edge v1 v2|
+	edge := Edge new.
+	v1 := Vertex new.
+	v1 vertexValue: 1.
+	v2 := Vertex new.
+	v2 vertexValue: 2.
+	edge setFrom: v1 to: v2.
+	self assert: edge fromVertex equals: v1.
+]
