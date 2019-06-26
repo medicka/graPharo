@@ -8,6 +8,52 @@ Class {
 }
 
 { #category : #tests }
+ForceBasedTests >> testAccumulateCx [
+	"Testing of accumulate method.
+	For given graph, expected result for cx is 49.0
+	If we use grid layout as default, cy=12.5"
+	|gr v1 v2 v3 v4 layout defaultLayout quad|
+	gr := Graph new.
+	v1 := gr addVertexWithValue: 1.
+	v2 := gr addVertexWithValue: 2.
+	v3 := gr addVertexWithValue: 3.
+	v4 := gr addVertexWithValue: 4.
+	gr addEdgeFrom: v3 to: v1;
+		addEdgeFrom: v3 to: v4;
+		addEdgeFrom: v4 to: v2.
+	defaultLayout := GraphCircleLayout new.
+	defaultLayout doExecute: (gr vertices ).
+	quad := GraphQuadTree withAll: (gr vertices ).
+	layout := GraphForceBasedLayout  new.
+	layout accumulate: quad.
+	self assert: quad cx equals: 49.0.
+	
+]
+
+{ #category : #tests }
+ForceBasedTests >> testAccumulateCy [
+	"Testing of accumulate method.
+	For given graph, expected result for cy is 51.5
+	If we use grid layout as default, cy=17.5"
+	|gr v1 v2 v3 v4 layout defaultLayout quad|
+	gr := Graph new.
+	v1 := gr addVertexWithValue: 1.
+	v2 := gr addVertexWithValue: 2.
+	v3 := gr addVertexWithValue: 3.
+	v4 := gr addVertexWithValue: 4.
+	gr addEdgeFrom: v3 to: v1;
+		addEdgeFrom: v3 to: v4;
+		addEdgeFrom: v4 to: v2.
+	defaultLayout := GraphCircleLayout  new.
+	defaultLayout doExecute: (gr vertices ).
+	quad := GraphQuadTree withAll: (gr vertices ).
+	layout := GraphForceBasedLayout  new.
+	layout accumulate: quad.
+	self assert: quad cy equals: 51.5.
+	
+]
+
+{ #category : #tests }
 ForceBasedTests >> testDoExecuteForceBased [
 	"A test that checks execution of force based layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
 	For v4, expected result 20.0@27.5 .

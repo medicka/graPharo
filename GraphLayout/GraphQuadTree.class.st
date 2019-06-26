@@ -11,7 +11,10 @@ Class {
 		'y',
 		'node',
 		'leaf',
-		'nodes'
+		'nodes',
+		'charge',
+		'cx',
+		'cy'
 	],
 	#category : #GraphLayout
 }
@@ -144,6 +147,16 @@ GraphQuadTree >> center [
 ]
 
 { #category : #accessing }
+GraphQuadTree >> charge [ 
+	^ charge
+]
+
+{ #category : #accessing }
+GraphQuadTree >> charge: anObject [ 
+	charge := anObject
+]
+
+{ #category : #accessing }
 GraphQuadTree >> corner [ 
 	^corner
 ]
@@ -151,6 +164,26 @@ GraphQuadTree >> corner [
 { #category : #accessing }
 GraphQuadTree >> corner: anObject [ 
 	corner := anObject
+]
+
+{ #category : #accessing }
+GraphQuadTree >> cx [ 
+	^ cx
+]
+
+{ #category : #accessing }
+GraphQuadTree >> cx: aFloat [
+	cx := aFloat
+]
+
+{ #category : #accessing }
+GraphQuadTree >> cy [ 
+	^ cy
+]
+
+{ #category : #accessing }
+GraphQuadTree >> cy: aFloat [ 
+	cy := aFloat
 ]
 
 { #category : #accessing }
