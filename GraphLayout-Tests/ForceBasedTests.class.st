@@ -81,6 +81,22 @@ ForceBasedTests >> testDoExecuteForceBased [
 ]
 
 { #category : #tests }
+ForceBasedTests >> testFixNode [
+"Testing ofsetiing fixed nodes, with fixed positions."
+	|layout v1 v2 p1 p2|
+	layout := GraphForceBasedLayout new.
+	v1 := Vertex new.
+	v1 vertexValue: 4.
+	p1 := 8.43@51.04.
+	v2 := Vertex new.
+	v2 vertexValue: 5.
+	p2 := 33.42@26.04.
+	layout fix: v1 at: p1;
+		fix: v2 at: p2. 
+	self assert: (layout fixedNodes size) equals: 2.
+]
+
+{ #category : #tests }
 ForceBasedTests >> testInitialPositionOfNodes [
 	"A test that checks setting of initial position of all vertices. As our Initial layout is Grid, that means that expected resault is positioning like the one in Grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
 	For v4, expected result 20.0@27.5 .
@@ -105,6 +121,22 @@ ForceBasedTests >> testInitialPositionOfNodes [
 	layout :=GraphForceBasedLayout new.
 	layout initialPositionOfNodes: (used).
 	self assert: (v2 position) equals: (20.0@7.5)
+]
+
+{ #category : #tests }
+ForceBasedTests >> testIsFixed [ 
+"Testing of checking if given node is fixed."
+	|layout v1 v2 p1 p2|
+	layout := GraphForceBasedLayout new.
+	v1 := Vertex new.
+	v1 vertexValue: 4.
+	p1 := 8.43@51.04.
+	v2 := Vertex new.
+	v2 vertexValue: 5.
+	p2 := 33.42@26.04.
+	layout fix: v1 at: p1;
+		fix: v2 at: p2. 
+	self assert: (layout isFixed: v2).
 ]
 
 { #category : #tests }

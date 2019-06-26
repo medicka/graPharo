@@ -81,6 +81,17 @@ GraphForceBasedLayout >> doExecute: nodeElements [
 	"nodes do: [ :e | translator translateTopLeftOf: e to: e position ]"
 ]
 
+{ #category : #testing }
+GraphForceBasedLayout >> fix: aNode at: aPoint [ 
+
+	fixedNodes at: aNode put: aPoint
+]
+
+{ #category : #accessing }
+GraphForceBasedLayout >> fixedNodes [
+	^fixedNodes
+]
+
 { #category : #hook }
 GraphForceBasedLayout >> initialPositionOfNodes: nodeElements [ 
 	initialLayout executeOnElements: nodeElements
@@ -106,6 +117,12 @@ GraphForceBasedLayout >> initialize [
 	center := 200 @ 200.
 	alpha := 0.1.
 	self useProgressBar
+]
+
+{ #category : #testing }
+GraphForceBasedLayout >> isFixed: aNode [ 
+
+	^ fixedNodes includesKey: aNode
 ]
 
 { #category : #hook }
