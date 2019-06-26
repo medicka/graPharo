@@ -183,7 +183,7 @@ GraphForceBasedLayout >> step [
 					pos := ea  position.
 					ea position: (pos x + ((x - pos x)* k)) @ (pos y + (( y - pos y )* k )) ] ].
 				
-		quad := GtGraphQuadTree withAll: nodes.
+		quad := GraphQuadTree withAll: nodes.
 		self accumulate: quad.
 		nodes do: [ :e | 
 			(self isFixed: e) 
