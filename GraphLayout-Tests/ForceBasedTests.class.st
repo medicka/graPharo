@@ -197,6 +197,26 @@ ForceBasedTests >> testPrepareNodes [
 ]
 
 { #category : #tests }
+ForceBasedTests >> testRepulseNodeFromQuad [
+
+	|gr v1 v2 v3 v4 layout quad|
+	gr := Graph new.
+	v1 := gr addVertexWithValue: 1.
+	v2 := gr addVertexWithValue: 2.
+	v3 := gr addVertexWithValue: 3.
+	v4 := gr addVertexWithValue: 4.
+	gr addEdgeFrom: v3 to: v1;
+		addEdgeFrom: v3 to: v4;
+		addEdgeFrom: v4 to: v2.
+	quad := GraphQuadTree withAll: (gr vertices ).
+	layout := GraphForceBasedLayout  new.
+	layout prepareNodes: (gr vertices ).
+	layout accumulate: quad.
+	layout repulse: v2 from: quad.
+	self assert: (layout oldPositions at: v2) isNotNil. 
+]
+
+{ #category : #tests }
 ForceBasedTests >> testRunLayoutSimpleNotZero [
 	"A test that checks runing of simple layout if the number of iterations is 5.Expected result is 0.009." 
 	
