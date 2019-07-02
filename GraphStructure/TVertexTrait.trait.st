@@ -3,7 +3,7 @@ I represent a behavior that class thet represents Veritx has to have.
 "
 Trait {
 	#name : #TVertexTrait,
-	#category : #GraphLayout
+	#category : #GraphStructure
 }
 
 { #category : #'as yet unclassified' }
