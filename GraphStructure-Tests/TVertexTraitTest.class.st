@@ -2,13 +2,13 @@
 I represent a collection of tests for behaviour in TVertexTrait.
 "
 Class {
-	#name : #VertexTraitTests,
+	#name : #TVertexTraitTest,
 	#superclass : #TestCase,
 	#category : #'GraphStructure-Tests'
 }
 
 { #category : #tests }
-VertexTraitTests >> testMeasureDimensionHeight [
+TVertexTraitTest >> testMeasureDimensionHeight [
   "Testing of getting height of a vertex.
 	Defalut dimensions of vertex 10x15.
 	Expected result is 15."
@@ -21,7 +21,7 @@ VertexTraitTests >> testMeasureDimensionHeight [
 ]
 
 { #category : #tests }
-VertexTraitTests >> testMeasureDimensionWidth [
+TVertexTraitTest >> testMeasureDimensionWidth [
   "Testing of getting width of a vertex.
 	Defalut dimensions of vertex 10x15.
 	Expected result is 10."
@@ -34,7 +34,7 @@ VertexTraitTests >> testMeasureDimensionWidth [
 ]
 
 { #category : #tests }
-VertexTraitTests >> testVertexExistInSet [
+TVertexTraitTest >> testVertexExistsIn [
   "Testing the existance of a vertex in any given set.
 	For given set, vertex with value 3 exists."
 

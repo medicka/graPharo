@@ -2,13 +2,13 @@
 I represent the collection of tests for Graph class.
 "
 Class {
-	#name : #GraphTests,
+	#name : #GraphTest,
 	#superclass : #TestCase,
 	#category : #'GraphStructure-Tests'
 }
 
 { #category : #tests }
-GraphTests >> testAddEdge [
+GraphTest >> testAddEdgeFromTo [
   "Testing of adding a new edge.
 	Expected result number of edges in garph is 1."
 
@@ -21,7 +21,7 @@ GraphTests >> testAddEdge [
 ]
 
 { #category : #tests }
-GraphTests >> testAddEdgeObject [
+GraphTest >> testAddEdgeObject [
   "Testing of adding a new edge.
 	Expected result number of edges in garph is 1."
 
@@ -36,7 +36,7 @@ GraphTests >> testAddEdgeObject [
 ]
 
 { #category : #tests }
-GraphTests >> testAddEdges [
+GraphTest >> testAddEdges [
   "Testing of adding a couple of edges.
 	Expected result: vertices size is 4; egdes size is 2."
 
@@ -52,7 +52,31 @@ GraphTests >> testAddEdges [
 ]
 
 { #category : #tests }
-GraphTests >> testAddUndirectedEdge [
+GraphTest >> testAddOnEdgeFrom [
+
+	|gr edge v|
+	gr := Graph new.
+	v := Vertex new.
+	v vertexValue: 2.
+	edge := Edge new.
+	gr addOnEdge: edge from: v.
+	self assert:(edge fromVertex ) equals: v.
+]
+
+{ #category : #tests }
+GraphTest >> testAddOnEdgeTo [
+
+	|gr edge v|
+	gr := Graph new.
+	v := Vertex new.
+	v vertexValue: 2.
+	edge := Edge new.
+	gr addOnEdge: edge to: v.
+	self assert:(edge toVertex ) equals: v.
+]
+
+{ #category : #tests }
+GraphTest >> testAddUndirectedEdgeFromTo [
   "Testing of adding a new edge in undirected graph.
 	Expected result number of edges in garph is 1."
 
@@ -66,7 +90,7 @@ GraphTests >> testAddUndirectedEdge [
 ]
 
 { #category : #tests }
-GraphTests >> testAddVertex [
+GraphTest >> testAddVertex [
   "Testing of adding a new Vertex.
 	Adding vertex with value to a graph, expected result for size of set vertices is 1."
 
@@ -79,7 +103,7 @@ GraphTests >> testAddVertex [
 ]
 
 { #category : #tests }
-GraphTests >> testAddVertexWithValue [
+GraphTest >> testAddVertexWithValue [
   "Testing of adding a new Vertex with value given.
 	Adding vertex with value to a graph, expected result for size of set vertices is 1."
 
@@ -90,7 +114,7 @@ GraphTests >> testAddVertexWithValue [
 ]
 
 { #category : #tests }
-GraphTests >> testAddVertices [
+GraphTest >> testAddVertices [
   "Testing of adding a couple new Vertex.
 	Adding three vertices to a graph, expected result for size of set vertices is 3."
 
@@ -109,7 +133,7 @@ GraphTests >> testAddVertices [
 ]
 
 { #category : #tests }
-GraphTests >> testEdgeExist [
+GraphTest >> testEdgeExists [
   "Testing the existance of an edge in a set of edges.
 	For test edge going from v2, to v1, expected result is true."
 
@@ -128,7 +152,7 @@ GraphTests >> testEdgeExist [
 ]
 
 { #category : #tests }
-GraphTests >> testInitGraph [
+GraphTest >> testInitialize [
 	"Testing the initialization of object type Graph.
 	Expected result is that variables edges and vertices are not nil."
 
@@ -138,7 +162,7 @@ GraphTests >> testInitGraph [
 ]
 
 { #category : #tests }
-GraphTests >> testUndirectedGraph [
+GraphTest >> testUndirectedGraph [
   "Testing of automatical addition od edges in case of undirected graph.
 	Directed graph with one edge, his undelineing undirected graph has two edges."
 
@@ -156,7 +180,7 @@ GraphTests >> testUndirectedGraph [
 ]
 
 { #category : #tests }
-GraphTests >> testVertexExist [
+GraphTest >> testVertexExists [
   "Testing the existance of a vertex in a set vertices.
 	In given a vertices, vertix with value 2 exists."
 
