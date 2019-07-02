@@ -13,11 +13,6 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #testing }
-GAbstractCircleLayout class >> isAbstract [ 
-	^ self name = #GtGraphAbstractCircleLayout
-]
-
 { #category : #hook }
 GAbstractCircleLayout >> computeIncrementalAngleFor: elements [ 
 	"Return the value, in radian, of the incremental angle"

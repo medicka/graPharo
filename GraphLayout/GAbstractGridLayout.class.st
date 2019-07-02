@@ -11,11 +11,6 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #testing }
-GAbstractGridLayout class >> isAbstract [ 
-	^ self name = #GtGraphAbstractGridLayout
-]
-
 { #category : #accessing }
 GAbstractGridLayout >> defaultGapSize [ 
 	"Sets a default value (5) to the size of a gap between vertices."
