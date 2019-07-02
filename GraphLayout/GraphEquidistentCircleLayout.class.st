@@ -29,7 +29,7 @@ GraphEquidistentCircleLayout >> doExecute: elements [
 			then the point is set, and then it's increased by the rest of the total increment"
 			"This is to consider both last and next elements weights"
 			angle := angle + ((each height)/(2*rad)).
-			point := center + (Point r: rad theta: angle).
+			point := center + (Point radius: rad theta: angle).
 			angleIncrement := (((each height)/2) + (self computeSeparationFor: elements))/rad.
 			angle := angle + angleIncrement.
 			translator translate: each to: point.

@@ -24,7 +24,7 @@ GraphWeightedCircleLayout >> doExecute: elements [
 			"This is to consider both last and next elements weights"
 			fctr := (elements size)*(each height)/(self weightSum: elements).
 			angle := angle + (angleIncrement*(fctr/2)).
-			point := center + (Point r: rad theta: angle).
+			point := center + (Point radius: rad theta: angle).
 			angle := angle + (angleIncrement*(fctr/2)).
 			translator translate: each to: point. ]
 ]
