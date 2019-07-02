@@ -9,5 +9,5 @@ Class {
 
 { #category : #'code-critics' }
 ManifestGraphStructureTests class >> ruleRTInvocationSequenceRuleV1FalsePositive [
-	^ #(#(#(#RGClassDefinition #(#GraphTests)) #'2019-05-30T07:33:47.627+02:00') )
+	^ #(#(#(#RGClassDefinition #(#GraphTest)) #'2019-05-30T07:33:47.627+02:00') )
 ]
