@@ -25,7 +25,7 @@ EdgeTests >> testEdgeEquals [
 	e2 := Edge new.
 	e2 fromVertex: v1;
 		toVertex: v2.
-	self assert: (e1 equals: e2) equals: true
+	self assert: (e1 equals: e2)
 ]
 
 { #category : #tests }

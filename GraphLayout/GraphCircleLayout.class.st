@@ -18,7 +18,7 @@ GraphCircleLayout >> doExecute: elements [
 	elements
 		do: [ :each | 
 			| point |
-			point := center + (Point r: rad theta: angle).
+			point := center + (Point radius: rad theta: angle).
 			angle := angle + angleIncrement.
 			translator translateTopLeftOf: each to: point.
 			]

@@ -11,6 +11,13 @@ Class {
 	#category : #GraphLayout
 }
 
+{ #category : #testing }
+GraphLayout class >> isAbstract [
+	"It is a convention in this project to name concrete classes with Graph."
+
+	^ (self name beginsWith: 'Graph') not
+]
+
 { #category : #hook }
 GraphLayout >> doExecute: elements [ 
 	"Performs the layout."

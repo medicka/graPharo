@@ -12,6 +12,15 @@ Class {
 	#category : #GraphStructure
 }
 
+{ #category : #comparing }
+Vertex >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ width = anObject width and: [ vertexValue = anObject vertexValue and: [ height = anObject height and: [ position = anObject position ] ] ]
+]
+
 { #category : #adding }
 Vertex >> addInNeighbour: vertex [
 	"Addes inNeighbor."
@@ -29,15 +38,22 @@ Vertex >> addOutNeighbour: vertex [
 { #category : #getter }
 Vertex >> degree [
 	"Returns a degree of a vertex in an undirected graph."
-	
-	^(self neighbourhood size)
+
+	^ self neighbourhood size
+]
+
+{ #category : #comparing }
+Vertex >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ width hash bitXor: (vertexValue hash bitXor: (height hash bitXor: position hash))
 ]
 
 { #category : #getter }
 Vertex >> inDegree [
 	"Returns in degree of a vertex"
-	
-	^(self inNeighbourhood size) 
+
+	^ self inNeighbourhood size
 ]
 
 { #category : #getter }
@@ -68,8 +84,8 @@ Vertex >> neighbourhood [
 { #category : #getter }
 Vertex >> outDegree [
 	"Returns out degree of a vertex"
-	
-	^(self outNeighbourhood size) 
+
+	^ self outNeighbourhood size
 ]
 
 { #category : #getter }
@@ -78,11 +94,11 @@ Vertex >> outNeighbourhood [
 ]
 
 { #category : #printing }
-Vertex >> printOn: ver1 [ 
-
-	ver1 nextPut: $[;
-		 print: vertexValue ;
-		 nextPut: $]
+Vertex >> printOn: aStream [
+	aStream
+		nextPut: $[;
+		print: vertexValue;
+		nextPut: $]
 ]
 
 { #category : #getter }
