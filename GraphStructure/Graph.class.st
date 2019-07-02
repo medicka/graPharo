@@ -13,19 +13,18 @@ Class {
 }
 
 { #category : #adding }
-Graph >> addEdgeFrom: ver1 to: ver2 [ 
+Graph >> addEdgeFrom: ver1 to: ver2 [
 	"Addes new edge between given vertices."
-	
-	|edge|
+
+	| edge |
 	edge := Edge new.
-	self addOnEdge: edge From: ver1; 
+	self
+		addOnEdge: edge from: ver1;
 		addOnEdge: edge to: ver2.
 	ver1 addOutNeighbour: ver2.
 	ver2 addInNeighbour: ver1.
 	self edges add: edge.
-	(self undirected)
-	ifTrue: [ self addingUndirectedEdgeFrom: ver2 to: ver1.]
-	
+	self undirected ifTrue: [ self addingUndirectedEdgeFrom: ver2 to: ver1 ]
 ]
 
 { #category : #adding }
@@ -36,7 +35,7 @@ Graph >> addEdgeObject: anEdge [
 ]
 
 { #category : #adding }
-Graph >> addOnEdge: edge From: ver1 [
+Graph >> addOnEdge: edge from: ver1 [
 	"Put ver1 as vertex from in given edge."
 	
 	(self vertexExists: ver1)

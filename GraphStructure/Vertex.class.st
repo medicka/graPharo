@@ -38,8 +38,8 @@ Vertex >> addOutNeighbour: vertex [
 { #category : #getter }
 Vertex >> degree [
 	"Returns a degree of a vertex in an undirected graph."
-	
-	^(self neighbourhood size)
+
+	^ self neighbourhood size
 ]
 
 { #category : #comparing }
@@ -52,8 +52,8 @@ Vertex >> hash [
 { #category : #getter }
 Vertex >> inDegree [
 	"Returns in degree of a vertex"
-	
-	^(self inNeighbourhood size) 
+
+	^ self inNeighbourhood size
 ]
 
 { #category : #getter }
@@ -84,8 +84,8 @@ Vertex >> neighbourhood [
 { #category : #getter }
 Vertex >> outDegree [
 	"Returns out degree of a vertex"
-	
-	^(self outNeighbourhood size) 
+
+	^ self outNeighbourhood size
 ]
 
 { #category : #getter }
