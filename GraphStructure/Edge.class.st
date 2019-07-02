@@ -14,14 +14,8 @@ Class {
 { #category : #'state machine' }
 Edge >> equals: edge [
 	"Compares self(edge on which we are working on) to edge."
-	
-	|tmp|
-	tmp := false.
-	((self fromVertex) = (edge fromVertex ))
-	ifTrue: [ tmp := true ].
-	((self toVertex ) ~= (edge toVertex ))
-	ifTrue: [ tmp := false ].
-	^tmp
+
+	^ self fromVertex = edge fromVertex and: [ self toVertex = edge toVertex ]
 ]
 
 { #category : #getter }

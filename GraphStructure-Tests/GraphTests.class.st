@@ -129,12 +129,12 @@ GraphTests >> testEdgeExist [
 
 { #category : #tests }
 GraphTests >> testInitGraph [
-  "Testing the initialization of object type Graph.
+	"Testing the initialization of object type Graph.
 	Expected result is that variables edges and vertices are not nil."
 
-	|tmp|
+	| tmp |
 	tmp := Graph new.
-	self deny: ((tmp edges isNil) & (tmp vertices isNil))
+	self deny: tmp edges isNil & tmp vertices isNil
 ]
 
 { #category : #tests }

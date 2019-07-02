@@ -9,10 +9,10 @@ Class {
 
 { #category : #tests }
 VertexTests >> testAddInNeighbourhood [
-  "Testing of adding in neighbors to a vertex.
+	"Testing of adding in neighbors to a vertex.
 	For vertex v1 inNeighbours is not empty."
 
-	|tmp v1 v2 v3 v4|
+	| tmp v1 v2 v3 v4 |
 	tmp := Graph new.
 	v1 := tmp addVertexWithValue: 4.
 	v2 := tmp addVertexWithValue: 3.
@@ -22,15 +22,15 @@ VertexTests >> testAddInNeighbourhood [
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
 	tmp addEdgeFrom: v3 to: v4.
-	self assert: (v1 inNeighbourhood isEmpty) equals: false
+	self deny: v1 inNeighbourhood isEmpty
 ]
 
 { #category : #tests }
 VertexTests >> testAddNeighbourhoodUndirected [
-  "Testing of adding neighbors to vertex of undirected graph.
+	"Testing of adding neighbors to vertex of undirected graph.
 	For vertex v3 neighbours is not empty."
 
-	|tmp v1 v2 v3 v4|
+	| tmp v1 v2 v3 v4 |
 	tmp := Graph new.
 	tmp undirected: true.
 	v1 := tmp addVertexWithValue: 4.
@@ -41,15 +41,15 @@ VertexTests >> testAddNeighbourhoodUndirected [
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
 	tmp addingUndirectedEdgeFrom: v3 to: v4.
-	self assert: (v3 neighbourhood isEmpty) equals: false
+	self deny: v3 neighbourhood isEmpty
 ]
 
 { #category : #tests }
 VertexTests >> testAddOutNeighbourhood [
-  "Testing of adding out neighbors to a vertex.
+	"Testing of adding out neighbors to a vertex.
 	For vertex v4 outNeighbours is not empty."
 
-	|tmp v1 v2 v3 v4|
+	| tmp v1 v2 v3 v4 |
 	tmp := Graph new.
 	v1 := tmp addVertexWithValue: 4.
 	v2 := tmp addVertexWithValue: 3.
@@ -59,7 +59,7 @@ VertexTests >> testAddOutNeighbourhood [
 	tmp addEdgeFrom: v3 to: v1.
 	tmp addEdgeFrom: v4 to: v1.
 	tmp addEdgeFrom: v3 to: v4.
-	self assert: (v4 outNeighbourhoodFromVertex: v4) isEmpty equals:  false
+	self deny: (v4 outNeighbourhoodFromVertex: v4) isEmpty
 ]
 
 { #category : #tests }
