@@ -20,7 +20,6 @@ Class {
 		'friction',
 		'theta',
 		'center',
-		'shouldUseProgressBar',
 		'weights',
 		'oldPositions'
 	],
@@ -74,9 +73,7 @@ GraphForceBasedLayout >> defaultInitialLayout [
 { #category : #hook }
 GraphForceBasedLayout >> doExecute: nodeElements [ 
 	self start: nodeElements.
-	self shouldRunLayoutWithProgressBar
-		ifTrue: [ self "runLayoutInJob" runLayoutSimply ]
-		ifFalse: [ self runLayoutSimply ].
+	self runLayoutSimply.
 	alpha := 0.
 	"nodes do: [ :e | translator translateTopLeftOf: e to: e position ]"
 ]
@@ -104,10 +101,10 @@ GraphForceBasedLayout >> initialize [
 	edges := #().
 	nodes := #().
 	initialLayout := self defaultInitialLayout.
-	fixedNodes := Dictionary new.
-	strengths := Dictionary new.
-	lengths := Dictionary new.
-	charges := Dictionary new.
+	fixedNodes := IdentityDictionary new.
+	strengths := IdentityDictionary new.
+	lengths := IdentityDictionary new.
+	charges := IdentityDictionary new.
 	strength := 1.
 	length := 20.
 	charge := -30.
@@ -115,20 +112,13 @@ GraphForceBasedLayout >> initialize [
 	friction := 0.9.
 	theta := 0.8.
 	center := 200 @ 200.
-	alpha := 0.1.
-	self useProgressBar
+	alpha := 0.1
 ]
 
 { #category : #testing }
 GraphForceBasedLayout >> isFixed: aNode [ 
 
 	^ fixedNodes includesKey: aNode
-]
-
-{ #category : #hook }
-GraphForceBasedLayout >> isJobInstalled [ 
-	"Return true if the class Job exist. This is mainly useful to make a distinction between Pharo and VisualWorks"
-	^ Smalltalk includesKey: #Job
 ]
 
 { #category : #acccessing }
@@ -150,7 +140,7 @@ GraphForceBasedLayout >> oldPositions [
 GraphForceBasedLayout >> prepareNodes: nodeElements [ 
 	"Initialize the meta data associated to the nodes. At that stage, position of nodes is not modified"
 	weights := Dictionary new.
-	oldPositions := Dictionary new.
+	oldPositions := IdentityDictionary new.
 	nodes := nodeElements.
 	nodes
 		do: [ :e | 
@@ -231,16 +221,6 @@ GraphForceBasedLayout >> set: anEdge strength: aNumber [
 ]
 
 { #category : #hook }
-GraphForceBasedLayout >> shouldRunLayoutWithProgressBar [ 
-	^ self isJobInstalled and: [ self shouldUseProgressBar ]
-]
-
-{ #category : #'initialize-release' }
-GraphForceBasedLayout >> shouldUseProgressBar [ 
-	^ shouldUseProgressBar	
-]
-
-{ #category : #hook }
 GraphForceBasedLayout >> start: nodeElements [ 
 	self initialPositionOfNodes: nodeElements.
 	self prepareNodes: nodeElements
@@ -305,11 +285,6 @@ GraphForceBasedLayout >> strength: aFloat [
 GraphForceBasedLayout >> strengthOf: anEdge [ 
 
 	^ strengths at: anEdge ifAbsent: [ ^ strength ] 
-]
-
-{ #category : #'initialize-release' }
-GraphForceBasedLayout >> useProgressBar [ 
-	shouldUseProgressBar := true	
 ]
 
 { #category : #accessing }
