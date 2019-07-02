@@ -25,6 +25,46 @@ AbstractVertexTest >> newInstance [
 ]
 
 { #category : #tests }
+AbstractVertexTest >> testInDegree [
+  "Testing of a method that calculates in degree of a vertex.
+	For vertex v1 expected result is 2.
+	For vertex v4 expected result is 1."
+
+	|tmp v1 v2 v3 v4|
+	tmp := Graph new.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
+	tmp addEdgeFrom: v4 to: v2.
+	tmp addEdgeFrom: v3 to: v1.
+	tmp addEdgeFrom: v4 to: v1.
+	tmp addEdgeFrom: v3 to: v4.
+	self assert: (v1 inDegree) equals: 2
+]
+
+{ #category : #tests }
+AbstractVertexTest >> testOutDegree [
+  "Testing of a method that calculates out degree of a vertex.
+	For vertex v4 expected result is 2.
+	For vertex v3 expected result is 2.
+	For vertex v1 expected result is 1."
+
+	|tmp v1 v2 v3 v4|
+	tmp := Graph new.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
+	tmp addEdgeFrom: v4 to: v2;
+		addEdgeFrom: v3 to: v1;
+		addEdgeFrom: v4 to: v1;
+		addEdgeFrom: v1 to: v4; 
+		addEdgeFrom: v3 to: v4.
+	self assert: (v1 outDegree) equals: 1
+]
+
+{ #category : #tests }
 AbstractVertexTest >> testPosition [
 	"Testing of changing position variable of a vertex.
 	Default position of newly made vertex is 0@0.
@@ -57,4 +97,23 @@ AbstractVertexTest >> testSetNewWidth [
 	v := self newInstance.
 	v setNewWidth: 6.
 	self assert: v width equals: 6
+]
+
+{ #category : #tests }
+AbstractVertexTest >> testUndirectedDegree [
+  "Testing of a method that calculates degree of a vertex in an undirected graph.
+	For vertex v4 expected result is 3."
+
+	|tmp v1 v2 v3 v4|
+	tmp := Graph new.
+	tmp undirected: true.
+	v1 := tmp addVertexWithValue: 4.
+	v2 := tmp addVertexWithValue: 3.
+	v3 := tmp addVertexWithValue: 7.
+	v4 := tmp addVertexWithValue: 1.
+	tmp addEdgeFrom: v4 to: v2.
+	tmp addEdgeFrom: v3 to: v1.
+	tmp addEdgeFrom: v4 to: v1.
+	tmp addingUndirectedEdgeFrom: v3 to: v4.
+	self assert: (v4 degree) equals: 3
 ]

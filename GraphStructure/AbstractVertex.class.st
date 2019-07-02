@@ -9,14 +9,55 @@ Class {
 	#instVars : [
 		'position',
 		'height',
-		'width'
+		'width',
+		'inNeighborhood',
+		'outNeighborhood'
 	],
 	#category : #GraphStructure
 }
 
+{ #category : #getter }
+AbstractVertex >> degree [
+	"Returns a degree of a vertex in an undirected graph."
+
+	^ self neighbourhood size
+]
+
 { #category : #accessing }
 AbstractVertex >> height [ 
 	^height 
+]
+
+{ #category : #getter }
+AbstractVertex >> inDegree [
+	"Returns in degree of a vertex"
+
+	^ self inNeighbourhood size
+]
+
+{ #category : #getter }
+AbstractVertex >> inNeighbourhood [
+	^inNeighborhood 
+]
+
+{ #category : #getter }
+AbstractVertex >> neighbourhood [ 
+	"Returns a neighborhood for vertex of undirected graph"
+	
+   ^outNeighborhood union: inNeighborhood
+  
+]
+
+{ #category : #getter }
+AbstractVertex >> outDegree [
+	"Returns out degree of a vertex"
+
+	^ self outNeighbourhood size
+]
+
+{ #category : #getter }
+AbstractVertex >> outNeighbourhood [
+	^outNeighborhood 
 ]
 
 { #category : #accessing }

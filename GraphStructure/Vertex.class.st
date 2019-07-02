@@ -5,9 +5,7 @@ Class {
 	#name : #Vertex,
 	#superclass : #AbstractVertex,
 	#instVars : [
-		'vertexValue',
-		'outNeighborhood',
-		'inNeighborhood'
+		'vertexValue'
 	],
 	#category : #GraphStructure
 }
@@ -35,30 +33,11 @@ Vertex >> addOutNeighbour: vertex [
   self outNeighbourhood add: vertex
 ]
 
-{ #category : #getter }
-Vertex >> degree [
-	"Returns a degree of a vertex in an undirected graph."
-
-	^ self neighbourhood size
-]
-
 { #category : #comparing }
 Vertex >> hash [
 	"Answer an integer value that is related to the identity of the receiver."
 
 	^ width hash bitXor: (vertexValue hash bitXor: (height hash bitXor: position hash))
-]
-
-{ #category : #getter }
-Vertex >> inDegree [
-	"Returns in degree of a vertex"
-
-	^ self inNeighbourhood size
-]
-
-{ #category : #getter }
-Vertex >> inNeighbourhood [
-	^inNeighborhood 
 ]
 
 { #category : #initialization }
@@ -71,26 +50,6 @@ Vertex >> initialize [
 	height := 15.
 	width := 10.
 	position := (width/2)@(height/2)
-]
-
-{ #category : #getter }
-Vertex >> neighbourhood [ 
-	"Returns a neighborhood for vertex of undirected graph"
-	
-   ^outNeighborhood union: inNeighborhood
-  
-]
-
-{ #category : #getter }
-Vertex >> outDegree [
-	"Returns out degree of a vertex"
-
-	^ self outNeighbourhood size
-]
-
-{ #category : #getter }
-Vertex >> outNeighbourhood [
-	^outNeighborhood 
 ]
 
 { #category : #printing }
