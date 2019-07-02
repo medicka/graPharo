@@ -11,6 +11,6 @@ BaselineOfGraphLayout >> baseline: spec [
 				
         "Packages"
         spec
-            package: 'GraphLayou';
+            package: 'GraphLayout';
             package: 'GraphLayout-Tests' with: [ spec requires: #('GraphLayout') ] ].
 ]
