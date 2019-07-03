@@ -10,8 +10,8 @@ Class {
 { #category : #tests }
 ForceBasedTests >> testAccumulateCx [
 	"Testing of accumulate method.
-	For given graph, expected result for cx is 49.0
-	If we use grid layout as default, cy=12.5"
+	For given graph, expected result for cx is 65.0
+	If we use grid layout as default, cy=17.5"
 	|gr v1 v2 v3 v4 layout defaultLayout quad|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -26,15 +26,15 @@ ForceBasedTests >> testAccumulateCx [
 	quad := GraphQuadTree withAll: (gr vertices ).
 	layout := GraphForceBasedLayout  new.
 	layout accumulate: quad.
-	self assert: quad cx equals: 49.0.
+	self assert: quad cx equals: 65.0.
 	
 ]
 
 { #category : #tests }
 ForceBasedTests >> testAccumulateCy [
 	"Testing of accumulate method.
-	For given graph, expected result for cy is 51.5
-	If we use grid layout as default, cy=17.5"
+	For given graph, expected result for cy is 67.5
+	If we use grid layout as default, cy=22.5"
 	|gr v1 v2 v3 v4 layout defaultLayout quad|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -49,7 +49,7 @@ ForceBasedTests >> testAccumulateCy [
 	quad := GraphQuadTree withAll: (gr vertices ).
 	layout := GraphForceBasedLayout  new.
 	layout accumulate: quad.
-	self assert: quad cy equals: 51.5.
+	self assert: quad cy equals: 67.5.
 	
 ]
 
@@ -102,9 +102,9 @@ ForceBasedTests >> testFixNode [
 { #category : #tests }
 ForceBasedTests >> testInitialPositionOfNodes [
 	"A test that checks setting of initial position of all vertices. As our Initial layout is Grid, that means that expected resault is positioning like the one in Grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
-	For v4, expected result 20.0@27.5 .
-	For v3, expected result 5.0@27.5 .
-	For v2, expected result 20.0@7.5 .
+	For v4, expected result 30.0@37.5 .
+	For v3, expected result 5.0@37.5 .
+	For v2, expected result 30.0@7.5 .
 	For v1, expected result 5.0@7.5 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
@@ -123,7 +123,7 @@ ForceBasedTests >> testInitialPositionOfNodes [
 		add: v4.
 	layout :=GraphForceBasedLayout new.
 	layout initialPositionOfNodes: (used).
-	self assert: (v2 position) equals: (20.0@7.5)
+	self assert: (v2 position) equals: (30.0@7.5)
 ]
 
 { #category : #tests }
