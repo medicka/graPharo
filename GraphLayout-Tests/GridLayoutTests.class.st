@@ -10,9 +10,9 @@ Class {
 { #category : #tests }
 GridLayoutTests >> testDoExecuteGrid [
 	"A test that checks execution of grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
-	For v4, expected result 20.0@27.5 .
+	For v4, expected result 30.0@37.5 .
 	For v3, expected result 5.0@27.5 .
-	For v2, expected result 20.0@7.5 .
+	For v2, expected result 30.0@7.5 .
 	For v1, expected result 5.0@7.5 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
@@ -31,7 +31,7 @@ GridLayoutTests >> testDoExecuteGrid [
 		add: v4.
 	layout :=GraphGridLayout  new.
 	layout doExecute: (used).
-	self assert: (v3 position) equals: (5.0@27.5)
+	self assert: (v3 position) equals: (5.0@37.5)
 ]
 
 { #category : #tests }
@@ -72,7 +72,7 @@ GridLayoutTests >> testInitializeAbstractGridL [
 	
 	|tmp|
 	tmp := GAbstractGridLayout  new.
-	self assert: (tmp gapSize) equals: 5
+	self assert: (tmp gapSize) equals: 15
 ]
 
 { #category : #tests }

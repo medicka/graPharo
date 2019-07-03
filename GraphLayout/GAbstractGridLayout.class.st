@@ -3,7 +3,7 @@ I represent an abstract describtion on all grid based layouts.
 "
 Class {
 	#name : #GAbstractGridLayout,
-	#superclass : #GraphLayout,
+	#superclass : #GLayout,
 	#instVars : [
 		'gapSize',
 		'lineItemsCountBlock'
@@ -15,7 +15,7 @@ Class {
 GAbstractGridLayout >> defaultGapSize [ 
 	"Sets a default value (5) to the size of a gap between vertices."
 	
-	^ 5
+	^ 15
 ]
 
 { #category : #accessing }

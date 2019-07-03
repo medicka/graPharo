@@ -3,7 +3,7 @@ I represent an abstract description of all circle based layouts.
 "
 Class {
 	#name : #GAbstractCircleLayout,
-	#superclass : #GraphLayout,
+	#superclass : #GLayout,
 	#instVars : [
 		'initialRadius',
 		'factor',
