@@ -2,7 +2,7 @@
 I represent an abstract layout class for graphs. My subclasses will implement actual algorithms.
 "
 Class {
-	#name : #GraphLayout,
+	#name : #GLayout,
 	#superclass : #Object,
 	#instVars : [
 		'verticesGroup',
@@ -12,33 +12,33 @@ Class {
 }
 
 { #category : #testing }
-GraphLayout class >> isAbstract [
+GLayout class >> isAbstract [
 	"It is a convention in this project to name concrete classes with Graph."
 
 	^ (self name beginsWith: 'Graph') not
 ]
 
 { #category : #hook }
-GraphLayout >> doExecute: elements [ 
+GLayout >> doExecute: elements [ 
 	"Performs the layout."
 
 	self subclassResponsibility
 ]
 
 { #category : #hook }
-GraphLayout >> doInitialize: elements [ 
+GLayout >> doInitialize: elements [ 
 	"Method executed before beginning the layout. Useful when the graph to be ordered need to be prepared"
 	"self announce: (ROLayoutBegin new elements: elements)."
 ]
 
 { #category : #hook }
-GraphLayout >> doPost: elements [ 
+GLayout >> doPost: elements [ 
 	"Method executed after performing the layout"
 	"self announce: (ROLayoutEnd new elements: elements)."
 ]
 
 { #category : #hook }
-GraphLayout >> executeOnElements: elements [  
+GLayout >> executeOnElements: elements [  
 	"Execute the layout, myself, on the elements"
 		
 	self doInitialize: elements.
@@ -47,7 +47,7 @@ GraphLayout >> executeOnElements: elements [
 ]
 
 { #category : #hook }
-GraphLayout >> initialize [ 
+GLayout >> initialize [ 
 	"Initializes the GraphLayout."
 	
 	super initialize.
@@ -55,7 +55,7 @@ GraphLayout >> initialize [
 ]
 
 { #category : #'stepping and presenter' }
-GraphLayout >> step [ 
+GLayout >> step [ 
 "	currentIteraction := currentIteraction + 1.
 	(currentIteraction \\ self iterationsToSendEvent) = 0 
 		ifTrue: [ self announce: (ROLayoutStep new 
