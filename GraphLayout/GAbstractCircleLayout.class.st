@@ -43,7 +43,7 @@ GAbstractCircleLayout >> initialize [
 	"Initialize a newly created instance. This method must answer the receiver."
 	
 	super initialize.
-	self scaleBy: 11.
+	self scaleBy: 15.
 	
 	"Represent the initial angle to place the elements"
 	initialAngle := 0.

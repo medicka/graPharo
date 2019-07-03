@@ -144,7 +144,7 @@ QuadTreeTests >> testCenter [
 { #category : #tests }
 QuadTreeTests >> testWithAllCorner [
 	"Testing of method that looks for maximal x and maximal y in all positions of nodes. To give some different postitions to nodes we use already implemented circle layout. 
-	Expected result: 93.0@95.5"
+	Expected result: 125.0@127.5"
 	
 	|gr v1 v2 v3 v4 layout quad|
 	gr := Graph new.
@@ -158,7 +158,7 @@ QuadTreeTests >> testWithAllCorner [
 	layout := GraphCircleLayout new.
 	layout doExecute: (gr vertices ).
 	quad := GraphQuadTree withAll: (gr vertices ).
-	self assert: quad corner equals: 93.0@95.5.
+	self assert: quad corner equals: 125.0@127.5.
 ]
 
 { #category : #tests }

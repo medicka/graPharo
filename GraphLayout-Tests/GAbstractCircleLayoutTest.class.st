@@ -40,7 +40,7 @@ GAbstractCircleLayoutTest >> testComputeIncrementalAngleFor [
 
 { #category : #tests }
 GAbstractCircleLayoutTest >> testComputeRadiusFor [
-	"A test that checks if the computation or radius is done properly. initialRadius in not selected, 	therefore for set of 4 elements with scalingFactor of 11(default one), expected result is 44 	radians." 
+	"A test that checks if the computation or radius is done properly. initialRadius in not selected, 	therefore for set of 4 elements with scalingFactor of 11(default one), expected result is 60 	radians." 
 	
 	|gr layout|
 	gr := Graph new.
@@ -49,7 +49,7 @@ GAbstractCircleLayoutTest >> testComputeRadiusFor [
 		addVertexWithValue: 3;
 		addVertexWithValue: 4.
 	layout :=self newInstance. 
-	self assert: (layout computeRadiusFor: (gr vertices)) equals: 44
+	self assert: (layout computeRadiusFor: (gr vertices)) equals: 60
 ]
 
 { #category : #'as yet unclassified' }

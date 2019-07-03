@@ -12,10 +12,10 @@ GraphEquidistentCircleLayoutTest >> actualClass [
 { #category : #tests }
 GraphEquidistentCircleLayoutTest >> testDoExecuteEquidistentCircle [
 	"A test that checks execution of equidistent circle layout. For easier testing, we transfer the set 	of vertices 	to LinkedList, so we can have ordered collection, and we round down to two decimals. 	Have in mind that position stors center of 	vertex.
-	For v4, expected result 57.69@10.86 .
-	For v3, expected result 5.07@56.5 .
-	For v2, expected result 47.75@92.98 .
-	For v1, expected result 92.36@58.96 ." 
+	For v4, expected result 73.71@10.63 .
+	For v3, expected result 5.05@72.5 .
+	For v2, expected result 63.75@124.98 .
+	For v1, expected result 124.53@74.98 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
@@ -36,5 +36,5 @@ GraphEquidistentCircleLayoutTest >> testDoExecuteEquidistentCircle [
 		add: v4.
 	layout :=GraphEquidistentCircleLayout  new.
 	layout doExecute: (used).
-	self assert: ((v3 position)roundDownTo: 0.01) equals: (5.07@56.5)
+	self assert: ((v3 position)roundDownTo: 0.01) equals: (5.05@72.5)
 ]

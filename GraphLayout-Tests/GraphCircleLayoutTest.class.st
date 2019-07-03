@@ -15,10 +15,10 @@ GraphCircleLayoutTest >> actualClass [
 { #category : #tests }
 GraphCircleLayoutTest >> testDoExecuteCircle [
 	"A test that checks execution of circle layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection, and we round down to two decimals. Have in mind 	that position stors center of 	vertex.
-	For v4, expected result 48.99@7.5 .
-	For v3, expected result 5.0@51.5 .
-	For v2, expected result 49.0@95.5 .
-	For v1, expected result 93.0@51.5 ." 
+	For v4, expected result 64.99@7.5 .
+	For v3, expected result 5.0@67.5 .
+	For v2, expected result 65.0@127.5 .
+	For v1, expected result 125.0@67.5 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
@@ -36,5 +36,5 @@ GraphCircleLayoutTest >> testDoExecuteCircle [
 		add: v4.
 	layout :=GraphCircleLayout  new.
 	layout doExecute: (used).
-	self assert: ((v2 position)roundDownTo: 0.01) equals: (49.0@95.5)
+	self assert: ((v4 position)roundDownTo: 0.01) equals: (64.99@7.5)
 ]
