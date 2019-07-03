@@ -56,17 +56,19 @@ ForceBasedTests >> testAccumulateCy [
 { #category : #tests }
 ForceBasedTests >> testDoExecuteForceBased [
 	"A test that checks execution of force based layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
-	For v4, expected result 20.0@27.5 .
-	For v3, expected result 5.0@27.5 .
-	For v2, expected result 20.0@7.5 .
-	For v1, expected result 5.0@7.5 ." 
+	For v5, expected result 209.53@222.92 .
+	For v4, expected result 180.88@214.04 .
+	For v3, expected result 222.8@199.53 .
+	For v2, expected result 207.03@178.5.
+	For v1, expected result 180.93@184.04 ." 
 	
-	|gr v1 v2 v3 v4 layout used|
+	|gr v1 v2 v3 v4 v5 layout used|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
 	v2 := gr addVertexWithValue: 2.
 	v3 := gr addVertexWithValue: 3.
 	v4 := gr addVertexWithValue: 4.
+	v5 := gr addVertexWithValue: 5.
 	gr addEdgeFrom: v3 to: v1;
 		addEdgeFrom: v3 to: v4;
 		addEdgeFrom: v4 to: v2.
@@ -74,10 +76,11 @@ ForceBasedTests >> testDoExecuteForceBased [
 	used add: v1;
 		add: v2;
 		add: v3;
-		add: v4.
+		add: v4;
+		add: v5.
 	layout :=GraphForceBasedLayout  new.
 	layout doExecute: (used).
-	self assert: (v3 position) equals: (5.0@27.5)
+	self assert: (((v5 position) roundDownTo: 0.01) closeTo: (209.53@222.92))
 ]
 
 { #category : #tests }
