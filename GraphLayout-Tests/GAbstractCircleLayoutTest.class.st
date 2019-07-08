@@ -1,28 +1,8 @@
 Class {
 	#name : #GAbstractCircleLayoutTest,
-	#superclass : #TestCase,
+	#superclass : #GLayoutTest,
 	#category : #'GraphLayout-Tests'
 }
-
-{ #category : #testing }
-GAbstractCircleLayoutTest class >> isAbstract [
-	^ self = GAbstractCircleLayoutTest
-]
-
-{ #category : #testing }
-GAbstractCircleLayoutTest class >> shouldInheritSelectors [
-	^ true
-]
-
-{ #category : #accessing }
-GAbstractCircleLayoutTest >> actualClass [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-GAbstractCircleLayoutTest >> newInstance [
-	^ self actualClass new
-]
 
 { #category : #tests }
 GAbstractCircleLayoutTest >> testComputeIncrementalAngleFor [

@@ -2,13 +2,13 @@
 I represent a collection of tests for edge driven layouts.
 "
 Class {
-	#name : #EdgeDrivenTests,
-	#superclass : #TestCase,
+	#name : #GEdgeDrivenLayoutTest,
+	#superclass : #GLayoutTest,
 	#category : #'GraphLayout-Tests'
 }
 
 { #category : #tests }
-EdgeDrivenTests >> testEdges [ 
+GEdgeDrivenLayoutTest >> testEdges [ 
 	"This test checks if the collection that has been given is ordered and set as variable edges."
 	
 	|gr layout|
@@ -19,7 +19,7 @@ EdgeDrivenTests >> testEdges [
 ]
 
 { #category : #tests }
-EdgeDrivenTests >> testSetEdgesFromElements [
+GEdgeDrivenLayoutTest >> testSetEdgesFromElements [
 	"This test checks if the collection of vertices from which edges start is done properly."
 	
 	|gr v1 v2 v3 v4 layout fromSet|

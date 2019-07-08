@@ -2,13 +2,18 @@
 I represent a set of test on connected to force based layout.
 "
 Class {
-	#name : #ForceBasedTests,
-	#superclass : #TestCase,
+	#name : #GraphForceBasedTest,
+	#superclass : #GEdgeDrivenLayoutTest,
 	#category : #'GraphLayout-Tests'
 }
 
+{ #category : #accessing }
+GraphForceBasedTest >> actualClass [
+	^ GraphForceBasedLayout 
+]
+
 { #category : #tests }
-ForceBasedTests >> testAccumulateCx [
+GraphForceBasedTest >> testAccumulateCx [
 	"Testing of accumulate method.
 	For given graph, expected result for cx is 65.0
 	If we use grid layout as default, cy=17.5"
@@ -31,7 +36,7 @@ ForceBasedTests >> testAccumulateCx [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testAccumulateCy [
+GraphForceBasedTest >> testAccumulateCy [
 	"Testing of accumulate method.
 	For given graph, expected result for cy is 67.5
 	If we use grid layout as default, cy=22.5"
@@ -54,7 +59,7 @@ ForceBasedTests >> testAccumulateCy [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testDoExecute [
+GraphForceBasedTest >> testDoExecute [
 	"A test that checks execution of force based layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
 	For v5, expected result 209.53@222.92 .
 	For v4, expected result 180.88@214.04 .
@@ -84,7 +89,7 @@ ForceBasedTests >> testDoExecute [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testFixNode [
+GraphForceBasedTest >> testFixNode [
 "Testing ofsetiing fixed nodes, with fixed positions."
 	|layout v1 v2 p1 p2|
 	layout := GraphForceBasedLayout new.
@@ -100,7 +105,7 @@ ForceBasedTests >> testFixNode [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testInitialPositionOfNodes [
+GraphForceBasedTest >> testInitialPositionOfNodes [
 	"A test that checks setting of initial position of all vertices. As our Initial layout is Grid, that means that expected resault is positioning like the one in Grid layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
 	For v4, expected result 30.0@37.5 .
 	For v3, expected result 5.0@37.5 .
@@ -127,7 +132,7 @@ ForceBasedTests >> testInitialPositionOfNodes [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testIsFixed [ 
+GraphForceBasedTest >> testIsFixed [ 
 "Testing of checking if given node is fixed."
 	|layout v1 v2 p1 p2|
 	layout := GraphForceBasedLayout new.
@@ -143,7 +148,7 @@ ForceBasedTests >> testIsFixed [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testLengthOf [
+GraphForceBasedTest >> testLengthOf [
 	"Testing of retreaving of length of a specific edge. For a given edge we set a length in dictionary as 17.5, expected result is 17.5."
 	
 	|gr v1 v2 edge layout|
@@ -159,7 +164,7 @@ ForceBasedTests >> testLengthOf [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testLengthOfAbsent [
+GraphForceBasedTest >> testLengthOfAbsent [
 	"Testing of retreaving of length of a specific edge. When there is no given edge in Lengths dictionary, expected result is 20."
 	
 	|gr v1 v2 edge layout|
@@ -174,7 +179,7 @@ ForceBasedTests >> testLengthOfAbsent [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testPrepareNodes [
+GraphForceBasedTest >> testPrepareNodes [
 	"Test for checking preparation of nodes, adding weights to every node (weight increases for every in or out edge).
 	Expected results:
 	v1 is 1.
@@ -200,7 +205,7 @@ ForceBasedTests >> testPrepareNodes [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testRepulseNodeFromQuad [
+GraphForceBasedTest >> testRepulseNodeFromQuad [
 
 	|gr v1 v2 v3 v4 layout quad|
 	gr := Graph new.
@@ -220,7 +225,7 @@ ForceBasedTests >> testRepulseNodeFromQuad [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testRunLayoutSimpleNotZero [
+GraphForceBasedTest >> testRunLayoutSimpleNotZero [
 	"A test that checks runing of simple layout if the number of iterations is 5.Expected result is 0.009." 
 	
 	|layout|
@@ -231,7 +236,7 @@ ForceBasedTests >> testRunLayoutSimpleNotZero [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testRunLayoutSimpleZero [
+GraphForceBasedTest >> testRunLayoutSimpleZero [
 	"A test that checks runing of simple layout if the number of iterations is 0. Since we calculate last alpha before checking if it is  bigger than 0.005, expected result is 0.0049." 
 	
 	|layout|
@@ -241,7 +246,7 @@ ForceBasedTests >> testRunLayoutSimpleZero [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testStrenghtOf [
+GraphForceBasedTest >> testStrenghtOf [
 	"Testing of retreaving of strength of a specific edge. For a given edge we set a strength in dictionary as 0.56, expected result is 0.56."
 	
 	|gr v1 v2 edge layout|
@@ -257,7 +262,7 @@ ForceBasedTests >> testStrenghtOf [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testStrenghtOfAbsent [
+GraphForceBasedTest >> testStrenghtOfAbsent [
 	"Testing of retreaving of strength of a specific edge.When there is no given edge in Strengths dictionary, expected result is 1."
 	
 	|gr v1 v2 edge layout|
