@@ -4,6 +4,8 @@ I represent an abstract class, that implements some ˝must have˝ methods and al
 Class {
 	#name : #AbstractEdge,
 	#superclass : #Object,
+	#traits : 'TEdgeTrait',
+	#classTraits : 'TEdgeTrait classTrait',
 	#instVars : [
 		'from',
 		'to'
