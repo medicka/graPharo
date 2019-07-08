@@ -54,7 +54,7 @@ ForceBasedTests >> testAccumulateCy [
 ]
 
 { #category : #tests }
-ForceBasedTests >> testDoExecuteForceBased [
+ForceBasedTests >> testDoExecute [
 	"A test that checks execution of force based layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
 	For v5, expected result 209.53@222.92 .
 	For v4, expected result 180.88@214.04 .
