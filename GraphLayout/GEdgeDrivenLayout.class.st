@@ -1,5 +1,5 @@
 "
-I represent abstract class that incorporates edges in to making a layout.
+I represent abstract class that incorporates edges into making a layout.
 "
 Class {
 	#name : #GEdgeDrivenLayout,
