@@ -47,7 +47,9 @@ GraphTranslator >> translate: element to: newPosition direction: aDirection [
 
 { #category : #'public - translating' }
 GraphTranslator >> translateTopLeftOf: element to: newPosition [ 
-	"Translate the top right corner of the element"
-
-	self translate: element to: newPosition direction: 1 @ 1
+	"Translate the top left corner of the element"
+	|w h|
+	w:= newPosition x  + (((element measureDimensions: element) at: #width)/2) .
+	h:= newPosition y  + (((element measureDimensions: element) at: #height)/2).  
+	self translate: element to: (w@h) direction: 1 @ 1
 ]

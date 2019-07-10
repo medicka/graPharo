@@ -16,7 +16,7 @@ GraphDirectTranslator class >> isDefault [
 GraphDirectTranslator >> translate: element to: newPosition [ 
 
 	|w h|
-	w:= newPosition x + (((element measureDimensions: element) at: #width)/2).
-	h:= newPosition y + (((element measureDimensions: element) at: #height)/2).
+	w:= newPosition x.
+	h:= newPosition y.
 	element position: w@h
 ]
