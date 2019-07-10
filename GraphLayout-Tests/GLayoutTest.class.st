@@ -1,3 +1,6 @@
+"
+I represent a collection of tests for incomon to all layouts.
+"
 Class {
 	#name : #GLayoutTest,
 	#superclass : #TestCase,

@@ -1,3 +1,6 @@
+"
+I represent a collection of tests for all circle layouts.
+"
 Class {
 	#name : #GAbstractCircleLayoutTest,
 	#superclass : #GLayoutTest,

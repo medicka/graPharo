@@ -1,3 +1,6 @@
+"
+I represent a collection of tests for grid based layouts.
+"
 Class {
 	#name : #GAbstractGridLayoutTest,
 	#superclass : #GLayoutTest,

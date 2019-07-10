@@ -1,3 +1,6 @@
+"
+I represent a collection of tests for circle layouts based on weights.
+"
 Class {
 	#name : #GAbstractWeightedCircleLayoutTest,
 	#superclass : #GraphCircleLayoutTest,
