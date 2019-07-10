@@ -28,8 +28,8 @@ If alightment is defaul, expected resault is 0@0 ."
 { #category : #tests }
 GraphHorizontalLineLayoutTest >> testDoExecute [ 
 "A test that checks execution of Horizontal line layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
-	For v4, expected result 65.0@37.5 .
-	For v3, expected result 45.0@27.5 .
+	For v4, expected result 65.0@7.5 .
+	For v3, expected result 45.0@7.5 .
 	For v2, expected result 25.0@7.5 .
 	For v1, expected result 5.0@7.5 ." 
 	

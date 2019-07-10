@@ -16,6 +16,12 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+GAbstractLineLayout >> alignLeft [
+	
+	alignment := #left
+]
+
+{ #category : #'as yet unclassified' }
 GAbstractLineLayout >> alignTop [
 	
 	alignment := #top
