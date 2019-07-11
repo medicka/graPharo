@@ -25,6 +25,15 @@ AbstractVertexTest >> newInstance [
 ]
 
 { #category : #tests }
+AbstractVertexTest >> testAttributes [
+	"Testing of adding of attributes dictionary to a vertex."
+
+	| v |
+	v := self newInstance.
+	self assert: v attributes notNil 
+]
+
+{ #category : #tests }
 AbstractVertexTest >> testInDegree [
   "Testing of a method that calculates in degree of a vertex.
 	For vertex v1 expected result is 2.

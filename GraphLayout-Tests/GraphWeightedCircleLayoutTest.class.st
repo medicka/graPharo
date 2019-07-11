@@ -12,10 +12,10 @@ GraphWeightedCircleLayoutTest >> actualClass [
 { #category : #tests }
 GraphWeightedCircleLayoutTest >> testDoExecuteWeightedCircle [
 	"A test that checks execution of weighted circle layout. For easier testing, we transfer the set 	of vertices 	to LinkedList, so we can have ordered collection, and we round down to two decimals. 	Have in mind that position stors center of 	vertex.
-	For v4, expected result 105.14@25.41 .
-	For v3, expected result 6.31@62.52 .
-	For v2, expected result 58.72@124.67 .
-	For v1, expected result 113.54@102.76 ." 
+	For v4, expected result 100.14@15.41 .
+	For v3, expected result 1.31@47.52 .
+	For v2, expected result 55.72@119.67 .
+	For v1, expected result 108.54@95.26 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
@@ -36,5 +36,5 @@ GraphWeightedCircleLayoutTest >> testDoExecuteWeightedCircle [
 		add: v4.
 	layout :=GraphWeightedCircleLayout  new.
 	layout doExecute: (used).
-	self assert: ((v4 position)roundDownTo: 0.01) equals: (105.14@25.41)
+	self assert: ((v4 position)roundDownTo: 0.01) equals: (100.14@15.41)
 ]

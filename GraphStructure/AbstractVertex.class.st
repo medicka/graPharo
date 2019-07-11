@@ -11,10 +11,18 @@ Class {
 		'height',
 		'width',
 		'inNeighborhood',
-		'outNeighborhood'
+		'outNeighborhood',
+		'attributes'
 	],
 	#category : #GraphStructure
 }
+
+{ #category : #accessing }
+AbstractVertex >> attributes [
+	"Return the list of attributes associated to the element. Attributes are useful for caching values"
+
+	^ attributes ifNil: [ attributes := Dictionary new ]
+]
 
 { #category : #getter }
 AbstractVertex >> degree [

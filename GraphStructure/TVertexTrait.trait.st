@@ -7,6 +7,11 @@ Trait {
 }
 
 { #category : #accessing }
+TVertexTrait >> attributes [
+	^ self explicitRequirement
+]
+
+{ #category : #accessing }
 TVertexTrait >> degree [
 	^ self explicitRequirement
 ]
