@@ -13,3 +13,21 @@ Class {
 	],
 	#category : #GraphLayout
 }
+
+{ #category : #api }
+GAbstractTreeLayout >> childrenFor: aVertex [
+	
+	^self cachedChildren
+		at: aVertex
+		ifAbsentPut:
+			(aVertex outNeighbourhood )
+]
+
+{ #category : #'as yet unclassified' }
+GAbstractTreeLayout >> parentsFor: aNode [
+	
+	^ self cachedParents
+		at: aNode
+		ifAbsentPut:
+			(aNode inNeighbourhood  )
+]
