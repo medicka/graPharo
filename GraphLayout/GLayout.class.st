@@ -46,12 +46,52 @@ GLayout >> executeOnElements: elements [
 	self doPost: elements
 ]
 
+{ #category : #'as yet unclassified' }
+GLayout >> fatherOf: aNode [
+	^ aNode attributes at: #father ifAbsent: [ nil ]
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> fatherOf: aNode put: aValue [
+	aNode attributes at: #father put: aValue
+]
+
 { #category : #hook }
 GLayout >> initialize [ 
 	"Initializes the GraphLayout."
 	
 	super initialize.
 	translator := GraphTranslator default.
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> layerOf: aNode [
+	^ aNode attributes at: #layout
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> layerOf: aNode put: aValue [
+	aNode attributes at: #layout put: aValue
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> leftContourOf: aNode [
+	^ aNode attributes at: #leftContour ifAbsent: [ ^ nil ]
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> leftContourOf: aNode put: aValue [
+	aNode attributes at: #leftContour put: aValue
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> rightContourOf: aNode [
+	^ aNode attributes at: #rightContour ifAbsent: [ ^ nil ]
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> rightContourOf: aNode put: aValue [
+	aNode attributes at: #rightContour put: aValue
 ]
 
 { #category : #'stepping and presenter' }
@@ -62,4 +102,18 @@ GLayout >> step [
 											currentIteration: currentIteraction;
 											maxInterations: maxInterations) ].
 	"
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> xOf: aVertex [
+
+	^ aVertex position x
+]
+
+{ #category : #'as yet unclassified' }
+GLayout >> xOf: aNode put: aValue [
+		
+	|y|
+	y := aNode position y.
+	aNode position: aValue@y
 ]
