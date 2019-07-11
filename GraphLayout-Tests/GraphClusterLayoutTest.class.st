@@ -7,6 +7,11 @@ Class {
 	#category : #'GraphLayout-Tests'
 }
 
+{ #category : #accessing }
+GraphClusterLayoutTest >> actualClass [
+	^ GraphClusterLayout 
+]
+
 { #category : #tests }
 GraphClusterLayoutTest >> testInitialize [ 
 
