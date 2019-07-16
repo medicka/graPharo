@@ -14,6 +14,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 GraphClusterLayout >> computePosition: aNode [
+"Helper method that calculates x of a given node."
 
 	|children previous|
 	
@@ -57,6 +58,7 @@ GraphClusterLayout >> doExecute: nodeElements [
 
 { #category : #drawing }
 GraphClusterLayout >> draw: aNode [
+"Calculates the new position, to which the vertex should be moved."
 
 	(self childrenFor: aNode) do: [ :e | self draw: e ].
 	translator 

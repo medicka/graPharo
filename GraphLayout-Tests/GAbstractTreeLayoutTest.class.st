@@ -9,6 +9,7 @@ Class {
 
 { #category : #tests }
 GAbstractTreeLayoutTest >> testChildrenFor [
+"Testing of retriving children for given vertex. Expected result is cachedChildren notNil."
 
 	|gr v1 v2 v3 v4 v5 layout|
 	gr := Graph new.
@@ -22,12 +23,12 @@ GAbstractTreeLayoutTest >> testChildrenFor [
 		addEdgeFrom: v4 to: v2.
 	layout := self newInstance.
 	layout childrenFor: v3.
-	self assert: layout cachedParents notNil 
+	self assert: layout cachedChildren notNil 
 ]
 
 { #category : #tests }
 GAbstractTreeLayoutTest >> testParentsFor [
-
+"Testing of retriving parents for given vertex. Expected result is cachedParents notNil."
 	|gr v1 v2 v3 v4 v5 layout|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
@@ -45,7 +46,7 @@ GAbstractTreeLayoutTest >> testParentsFor [
 
 { #category : #tests }
 GAbstractTreeLayoutTest >> testRootNodesFor [
-
+"Testing og a method which finds all root nodes in the graph. Those are all the nodes, that have no inNeighbourhood. Expected result is 1."
 	|gr v1 v2 v3 v4 v5 layout|
 	gr := Graph new.
 	v1 := gr addVertexWithValue: 1.
