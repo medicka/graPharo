@@ -8,6 +8,47 @@ Class {
 }
 
 { #category : #tests }
+TVertexTraitTest >> testDimension [  
+"Expected result:
+v1 is 50@55,
+v2 is 10@15,
+v3 is 70@75, 
+v4 is 30@35."
+	
+	|gr v1 v2 v3 v4|
+	gr := Graph new.
+	v1 := gr addVertexWithValue: 1.
+	v2 := gr addVertexWithValue: 2.
+	v3 := gr addVertexWithValue: 3.
+	v4 := gr addVertexWithValue: 4.
+	gr addEdgeFrom: v3 to: v1;
+		addEdgeFrom: v3 to: v4;
+		addEdgeFrom: v1 to: v4;
+		addEdgeFrom: v4 to: v2.
+	self assert: v4 dimension equals: 30@35
+]
+
+{ #category : #tests }
+TVertexTraitTest >> testHasChildren [ 
+"Expected result:
+v1 true,
+v2 false,
+v3 true, v4 true."
+	
+	|gr v1 v2 v3 v4|
+	gr := Graph new.
+	v1 := gr addVertexWithValue: 1.
+	v2 := gr addVertexWithValue: 2.
+	v3 := gr addVertexWithValue: 3.
+	v4 := gr addVertexWithValue: 4.
+	gr addEdgeFrom: v3 to: v1;
+		addEdgeFrom: v3 to: v4;
+		addEdgeFrom: v1 to: v4;
+		addEdgeFrom: v4 to: v2.
+	self assert: v3 hasChildren 
+]
+
+{ #category : #tests }
 TVertexTraitTest >> testMeasureDimensionHeight [
   "Testing of getting height of a vertex.
 	Defalut dimensions of vertex 10x15.

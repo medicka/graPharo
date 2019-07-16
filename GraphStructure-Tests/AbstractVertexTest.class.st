@@ -34,6 +34,25 @@ AbstractVertexTest >> testAttributes [
 ]
 
 { #category : #tests }
+AbstractVertexTest >> testCompositeMargin [
+	"Testing of setting a margine to a vertex.
+	Expected result 10@10"
+
+	| v |
+	v := self newInstance.
+	self assert: v compositeMargin equals: 10@10 
+]
+
+{ #category : #tests }
+AbstractVertexTest >> testEncompassingRectangle [
+	"Testing of making a encompasing rectangle around a given vertex."
+
+	| v |
+	v := self newInstance.
+	self assert: v encompassingRectangle notNil  
+]
+
+{ #category : #tests }
 AbstractVertexTest >> testInDegree [
   "Testing of a method that calculates in degree of a vertex.
 	For vertex v1 expected result is 2.

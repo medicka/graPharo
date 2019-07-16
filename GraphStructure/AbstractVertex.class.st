@@ -12,7 +12,9 @@ Class {
 		'width',
 		'inNeighborhood',
 		'outNeighborhood',
-		'attributes'
+		'attributes',
+		'encompassingRectangle',
+		'compositeMargin'
 	],
 	#category : #GraphStructure
 }
@@ -24,11 +26,21 @@ AbstractVertex >> attributes [
 	^ attributes ifNil: [ attributes := Dictionary new ]
 ]
 
+{ #category : #accessing }
+AbstractVertex >> compositeMargin [
+	^ compositeMargin ifNil: [ 10@10 ]
+]
+
 { #category : #getter }
 AbstractVertex >> degree [
 	"Returns a degree of a vertex in an undirected graph."
 
 	^ self neighbourhood size
+]
+
+{ #category : #accessing }
+AbstractVertex >> encompassingRectangle [
+	^ encompassingRectangle ifNil: [ encompassingRectangle := Rectangle center: self position extent: self dimension ]
 ]
 
 { #category : #accessing }

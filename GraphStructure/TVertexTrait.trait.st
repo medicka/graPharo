@@ -17,6 +17,23 @@ TVertexTrait >> degree [
 ]
 
 { #category : #accessing }
+TVertexTrait >> dimension [
+	^ self hasChildren
+		ifTrue: [ self outNeighbourhood makeEncompassingRectangles extent + (2 * self compositeMargin) ]
+		ifFalse: [ (self width)@(self height) ]
+]
+
+{ #category : #accessing }
+TVertexTrait >> extent [
+	^ self dimension
+]
+
+{ #category : #testing }
+TVertexTrait >> hasChildren [
+	^ self outNeighbourhood notEmpty
+]
+
+{ #category : #accessing }
 TVertexTrait >> height [
 	^ self explicitRequirement
 ]
