@@ -46,12 +46,12 @@ GLayout >> executeOnElements: elements [
 	self doPost: elements
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GLayout >> fatherOf: aNode [
 	^ aNode attributes at: #father ifAbsent: [ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GLayout >> fatherOf: aNode put: aValue [
 	aNode attributes at: #father put: aValue
 ]
@@ -64,32 +64,32 @@ GLayout >> initialize [
 	translator := GraphTranslator default.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GLayout >> layerOf: aNode [
 	^ aNode attributes at: #layout
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GLayout >> layerOf: aNode put: aValue [
 	aNode attributes at: #layout put: aValue
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GLayout >> leftContourOf: aNode [
 	^ aNode attributes at: #leftContour ifAbsent: [ ^ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GLayout >> leftContourOf: aNode put: aValue [
 	aNode attributes at: #leftContour put: aValue
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GLayout >> rightContourOf: aNode [
 	^ aNode attributes at: #rightContour ifAbsent: [ ^ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GLayout >> rightContourOf: aNode put: aValue [
 	aNode attributes at: #rightContour put: aValue
 ]
@@ -104,13 +104,13 @@ GLayout >> step [
 	"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GLayout >> xOf: aVertex [
 
 	^ aVertex position x
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GLayout >> xOf: aNode put: aValue [
 		
 	|y|

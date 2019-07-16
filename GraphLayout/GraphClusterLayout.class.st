@@ -12,7 +12,7 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GraphClusterLayout >> computePosition: aNode [
 "Helper method that calculates x of a given node."
 

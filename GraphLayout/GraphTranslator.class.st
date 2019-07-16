@@ -26,7 +26,7 @@ GraphTranslator class >> defaultClass [
 	^ self allSubclasses detect: #isDefault
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GraphTranslator >> defaultTranslator [
 	^defaultTranslator
 ]

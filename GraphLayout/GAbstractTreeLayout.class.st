@@ -14,20 +14,20 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #api }
+{ #category : #getter }
 GAbstractTreeLayout >> cachedChildren [
 	
 	cachedChildren ifNil: [cachedChildren := IdentityDictionary new: 1000].
 	^cachedChildren
 ]
 
-{ #category : #accessing }
+{ #category : #getter }
 GAbstractTreeLayout >> cachedParents [
 	cachedParents ifNil: [cachedParents := IdentityDictionary new: 1000].
 	^cachedParents
 ]
 
-{ #category : #api }
+{ #category : #getter }
 GAbstractTreeLayout >> childrenFor: aVertex [
 	
 	^self cachedChildren
@@ -36,12 +36,12 @@ GAbstractTreeLayout >> childrenFor: aVertex [
 			(aVertex outNeighbourhood )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GAbstractTreeLayout >> horizontalGap [
 	^ horizontalGap
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GAbstractTreeLayout >> parentsFor: aNode [
 	
 	^ self cachedParents
@@ -50,13 +50,13 @@ GAbstractTreeLayout >> parentsFor: aNode [
 			(aNode inNeighbourhood  )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #collection }
 GAbstractTreeLayout >> rootNodesFor: aCollection [
 	^ aCollection select: [:node | 
 		( self parentsFor: node) isEmpty ].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GAbstractTreeLayout >> verticalGap [
 	^ verticalGap
 ]

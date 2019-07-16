@@ -7,7 +7,7 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GraphVerticalLineLayout >> deltaFor: aNodeFigure [
 	
 	| delta |
@@ -17,20 +17,20 @@ GraphVerticalLineLayout >> deltaFor: aNodeFigure [
 	^delta @ 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #initalize }
 GraphVerticalLineLayout >> initialize [
 	
 	super initialize.
 	self alignLeft
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #moves }
 GraphVerticalLineLayout >> movePointer: pointer accordingToFigure: aNodeFigure [
 	
 	^ pointer x @ (pointer y + aNodeFigure height + self verticalGap)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GraphVerticalLineLayout >> positionOriginalPointer: elements [ 
 	| maxWidth delta |
 	delta := 0.

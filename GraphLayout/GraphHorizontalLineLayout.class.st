@@ -7,7 +7,7 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GraphHorizontalLineLayout >> deltaFor: aVertex [
 	
 	| delta |
@@ -17,20 +17,20 @@ GraphHorizontalLineLayout >> deltaFor: aVertex [
 	^0 @ delta
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #initalize }
 GraphHorizontalLineLayout >> initialize [
 	
 	super initialize.
 	self alignTop
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #moves }
 GraphHorizontalLineLayout >> movePointer: pointer accordingToFigure: element [
 	
 	^ (pointer x + element width + self horizontalGap) @ pointer y
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GraphHorizontalLineLayout >> positionOriginalPointer: elements [ 
 	| maxHeight delta |
 	delta := 0.

@@ -15,13 +15,13 @@ Class {
 	#category : #GraphLayout
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GAbstractLineLayout >> alignLeft [
 	
 	alignment := #left
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GAbstractLineLayout >> alignTop [
 	
 	alignment := #top
@@ -39,7 +39,7 @@ GAbstractLineLayout >> alignment: anObject [
 	alignment := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GAbstractLineLayout >> deltaFor: aNodeFigure [
 	
 	^self subclassResponsibility
@@ -70,7 +70,7 @@ GAbstractLineLayout >> horizontalGap [
 	^horizontalGap
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #initalize }
 GAbstractLineLayout >> initialize [
 	
 	super initialize.
@@ -78,13 +78,13 @@ GAbstractLineLayout >> initialize [
 	horizontalGap := 10.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #moves }
 GAbstractLineLayout >> movePointer: pointer accordingToFigure: aNodeFigure [
 	
 	self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GAbstractLineLayout >> positionOriginalPointer: aGraph [
 	
 	^self subclassResponsibility
