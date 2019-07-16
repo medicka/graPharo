@@ -1,5 +1,5 @@
 "
-I represent a collection of tests for all grid based layouts.
+I represent a collection of tests for grid based layout.
 "
 Class {
 	#name : #GraphGridLayoutTest,
