@@ -15,10 +15,10 @@ GraphCellLayoutTest >> actualClass [
 { #category : #tests }
 GraphCellLayoutTest >> testDoExecute [
 	"A test that checks execution of cell layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
-	For v4, expected result 90.0@37.5 .
-	For v3, expected result 10.0@27.5 .
-	For v2, expected result 90.0@10 .
-	For v1, expected result 10.0@10 ." 
+	For v4, expected result 125.0@42.5 .
+	For v3, expected result 25.0@42.5 .
+	For v2, expected result 125.0@7.5 .
+	For v1, expected result 25.0@7.5 ." 
 	
 	|gr v1 v2 v3 v4 layout used|
 	gr := Graph new.
@@ -36,7 +36,7 @@ GraphCellLayoutTest >> testDoExecute [
 		add: v4.
 	layout :=GraphCellLayout  new.
 	layout doExecute: (used).
-	self assert: (v4 position) equals: (90@27.5)
+	self assert: (v1 position) equals: (25@7.5)
 ]
 
 { #category : #tests }

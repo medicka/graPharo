@@ -30,19 +30,18 @@ GraphCellLayout >> doExecute: elements [
 	columnsWidths := OrderedCollection new.
 	rowHeights := OrderedCollection new.
 	elements do: [ :e |
-		columnsWidths size < columnCount ifTrue: [ columnsWidths add: 0 ].
-		columnsWidths at: columnCount put: ((columnsWidths at: columnCount) max: e extent x).		
-		maxHeight := maxHeight max: e extent y.
-		columnCount := columnCount + 1.
-		columnCount > lineItemSize
-			ifTrue: [ 
-				columnCount := 1. 
-				rowHeights add: maxHeight.
-				maxHeight := 0 ]
-	].
+		columnsWidths size < columnCount 
+			ifTrue: [ columnsWidths add: 0 ].
+				columnsWidths at: columnCount put: ((columnsWidths at: columnCount) max: e extent x).		
+				maxHeight := maxHeight max: e extent y.
+				columnCount := columnCount + 1.
+				columnCount > lineItemSize
+					ifTrue: [ 
+						columnCount := 1. 
+						rowHeights add: maxHeight.
+						maxHeight := 0 ]
+			].
 	rowHeights add: maxHeight.
-
-
 	"We do the translation"
 	columnCount := 1.
 	rowCount := 1.
@@ -50,7 +49,6 @@ GraphCellLayout >> doExecute: elements [
 	elements do: [ :e | 
 		e position: pointer.
 		pointer := pointer + (self gapSize * 2 @ 0) + (((columnsWidths at: columnCount) / 2) @ 0).
-
 		columnCount := columnCount + 1.
 		columnCount > lineItemSize
 			ifTrue: [ 
