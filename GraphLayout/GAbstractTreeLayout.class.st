@@ -9,7 +9,11 @@ Class {
 		'horizontalGap',
 		'cachedChildren',
 		'cachedParents',
-		'cachedParentsWithHighestNestings'
+		'alreadyLayoutedNodes',
+		'topGap',
+		'leftGap',
+		'nodesByLayer',
+		'isLayered'
 	],
 	#category : #GraphLayout
 }

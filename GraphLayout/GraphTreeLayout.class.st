@@ -3,10 +3,7 @@ I represent a tree layout for a graph.
 "
 Class {
 	#name : #GraphTreeLayout,
-	#superclass : #GAbstractVerticalTreeLayout,
-	#instVars : [
-		'alreadyLayoutedVertices'
-	],
+	#superclass : #GAbstractTreeLayout,
 	#category : #GraphLayout
 }
 
