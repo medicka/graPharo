@@ -34,39 +34,37 @@ GEdgeDrivenLayout >> edges: aCollection [
 ]
 
 { #category : #hook }
-GEdgeDrivenLayout >> executeOnElements: elements [ 
+GEdgeDrivenLayout >> executeOnElements: elements [
 	"Execute the layout, myself, on the elements"
 
-	self userDefinedEdges isNil 
+	self userDefinedEdges isNil
 		ifTrue: [ self setEdgesFromElements: elements ]
-		ifFalse: 
-			[ | flat |
+		ifFalse: [ | flat |
 			flat := OrderedCollection new.
-			self userDefinedEdges do: 
-				[ :each | 
-				each isCollection 
-					ifTrue: [ flat addAll: each ]
-					ifFalse: [ flat add: each ] ].
+			self userDefinedEdges
+				do: [ :each | 
+					each isCollection
+						ifTrue: [ flat addAll: each ]
+						ifFalse: [ flat add: each ] ].
 			self edges: flat ].
-		
 	super executeOnElements: elements
 ]
 
 { #category : #initialization }
-GEdgeDrivenLayout >> setEdgesFromElements: elements [ 
-
-	|collection|
-	collection:= Set new.
+GEdgeDrivenLayout >> setEdgesFromElements: elements [
+	| collection |
+	collection := Set new.
 	elements isEmpty
 		ifTrue: [ ^ self ].
-	elements do: [ :aNode | ((aNode outNeighbourhood ) do: [
-					:each| |edge| 
+	elements
+		do: [ :aNode | 
+			aNode outNeighbourhood
+				do: [ :each | 
+					| edge |
 					edge := Edge new.
-					edge setFrom: aNode to: each. 
-					collection add: edge 
-				])].
-	^ self
-		edges:collection
+					edge setFrom: aNode to: each.
+					collection add: edge ] ].
+	^ self edges: collection
 ]
 
 { #category : #accessing }

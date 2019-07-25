@@ -8,27 +8,23 @@ Class {
 		'verticalGap',
 		'horizontalGap',
 		'cachedChildren',
-		'cachedParents',
-		'alreadyLayoutedNodes',
-		'topGap',
-		'leftGap',
-		'nodesByLayer',
-		'isLayered'
+		'cachedParents'
 	],
 	#category : #GraphLayout
 }
 
 { #category : #getter }
 GAbstractTreeLayout >> cachedChildren [
-	
-	cachedChildren ifNil: [cachedChildren := IdentityDictionary new: 1000].
-	^cachedChildren
+	cachedChildren
+		ifNil: [ cachedChildren := IdentityDictionary new: 1000 ].
+	^ cachedChildren
 ]
 
 { #category : #getter }
 GAbstractTreeLayout >> cachedParents [
-	cachedParents ifNil: [cachedParents := IdentityDictionary new: 1000].
-	^cachedParents
+	cachedParents
+		ifNil: [ cachedParents := IdentityDictionary new: 1000 ].
+	^ cachedParents
 ]
 
 { #category : #getter }
