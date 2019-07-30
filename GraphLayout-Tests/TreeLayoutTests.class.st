@@ -54,5 +54,5 @@ TreeLayoutTests >> testInitializeTreeL [
 	
 	|tmp|
 	tmp := GraphTreeLayout new.
-	self deny: (tmp alreadyLayoutedVertices) isNil
+	self deny: (tmp alreadyLayoutedNodes) isNil
 ]
