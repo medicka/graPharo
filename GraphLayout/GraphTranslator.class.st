@@ -47,7 +47,7 @@ GraphTranslator >> translate: element to: newPosition direction: aDirection [
 
 { #category : #'as yet unclassified' }
 GraphTranslator >> translateBottomLeftOf: element to: newPosition [ 
-	"Translate the top left corner of the element"
+	"Translate the bottom left corner of the element"
 	|w h|
 	w:= newPosition x  + (((element measureDimensions: element) at: #width)/2) .
 	h:= newPosition y  - (((element measureDimensions: element) at: #height)/2).
