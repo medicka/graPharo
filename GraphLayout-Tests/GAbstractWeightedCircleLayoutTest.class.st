@@ -24,7 +24,9 @@ GAbstractWeightedCircleLayoutTest >> testWeightSum [
 	graph := Graph new.
 	vertex1 := graph addVertexWithValue: 1.
 	vertex2 := graph addVertexWithValue: 2.
+	vertex1 setNewWidth: 45.
+	vertex1 setNewHeight: 45.
 	layout := self newInstance .
-	self assert: (layout weightSum: graph vertices) equals: 30
+	self assert: (layout weightSum: graph vertices) equals: 60
 	
 ]

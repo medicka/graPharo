@@ -8,13 +8,16 @@ Class {
 }
 
 { #category : #hook }
-GAbstractWeightedCircleLayout >> weightSum: elements [ 
+GAbstractWeightedCircleLayout >> weightSum: elements [
 	"Computes the sum of all elements 'weight' or size"
-	| sum |
+
+	| sum bigger |
 	sum := 0.
 	elements
-		do: [ :each |
-			sum := sum + (each height)
-		].
-	^sum
+		do: [ :each | 
+			each height > each width
+				ifTrue: [ bigger := each height ]
+				ifFalse: [ bigger := each width ].
+			sum := sum + bigger ].
+	^ sum
 ]
