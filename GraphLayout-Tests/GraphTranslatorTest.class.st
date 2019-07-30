@@ -33,7 +33,7 @@ GraphTranslatorTest >> testTranslateBottomLeftOfTo [
 	"A test that checks if the translation is done properly. We invoke the translation from bottom left 	corner of element.
 	Expected result is new position for each vertex. Position is in the center of vertex.
 	For v1 if translated to 2@1 is 7@-6.5.
-	For v2 if translated to 3@6 is 8@ -1.5."
+	For v2 if translated to 3@6 is 8@-1.5."
 	
 	|gr v1 v2 v3 v4 translator|
 	gr := Graph new.
@@ -42,16 +42,16 @@ GraphTranslatorTest >> testTranslateBottomLeftOfTo [
 	v3 := gr addVertexWithValue: 3.
 	v4 := gr addVertexWithValue: 4.
 	translator := GraphDirectTranslator new.
-	translator translateBottomLeftOf: v2 to: (3@6).
-	self assert: (v2 position ) equals: (8@ -1.5)
+	translator translateBottomLeftOf: v1 to: (2@1).
+	self assert: (v1 position ) equals: (7@ -6.5)
 ]
 
 { #category : #tests }
 GraphTranslatorTest >> testTranslateBottomRightOfTo [
 	"A test that checks if the translation is done properly. We invoke the translation from bottom right 	corner of element.
 	Expected result is new position for each vertex. Position is in the center of vertex.
-	For v1 if translated to 2@1 is -3@-1.5.
-	For v2 if translated to 3@6 is -2@ -1.5."
+	For v1 if translated to 2@1 is -3@-6.5.
+	For v2 if translated to 3@6 is -2@-1.5."
 	
 	|gr v1 v2 v3 v4 translator|
 	gr := Graph new.
