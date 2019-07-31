@@ -14,12 +14,12 @@ EdgeTest >> actualClass [
 
 { #category : #tests }
 EdgeTest >> testInitialize [
-  "Testing the initialization of object type Edge.
+	"Testing the initialization of object type Edge.
 	Expected result is that variables fromVertex and toVertex are not nil."
 
-	|tmp|
-	tmp := Edge new.
-	self deny: ((tmp fromVertex isNil) & (tmp toVertex isNil))
+	| edge |
+	edge := Edge new.
+	self deny: edge fromVertex isNil & edge toVertex isNil
 ]
 
 { #category : #tests }

@@ -31,13 +31,6 @@ AbstractVertex >> compositeMargin [
 	^ compositeMargin ifNil: [ 10@10 ]
 ]
 
-{ #category : #getter }
-AbstractVertex >> degree [
-	"Returns a degree of a vertex in an undirected graph."
-
-	^ self neighbourhood size
-]
-
 { #category : #accessing }
 AbstractVertex >> encompassingRectangle [
 	^ encompassingRectangle ifNil: [ encompassingRectangle := Rectangle center: self position extent: self dimension ]
@@ -49,30 +42,8 @@ AbstractVertex >> height [
 ]
 
 { #category : #getter }
-AbstractVertex >> inDegree [
-	"Returns in degree of a vertex"
-
-	^ self inNeighbourhood size
-]
-
-{ #category : #getter }
 AbstractVertex >> inNeighbourhood [
 	^inNeighborhood 
-]
-
-{ #category : #getter }
-AbstractVertex >> neighbourhood [ 
-	"Returns a neighborhood for vertex of undirected graph"
-	
-   ^outNeighborhood union: inNeighborhood
-  
-]
-
-{ #category : #getter }
-AbstractVertex >> outDegree [
-	"Returns out degree of a vertex"
-
-	^ self outNeighbourhood size
 ]
 
 { #category : #getter }

@@ -13,7 +13,7 @@ TVertexTrait >> attributes [
 
 { #category : #accessing }
 TVertexTrait >> degree [
-	^ self explicitRequirement
+	^ self neighbourhood size
 ]
 
 { #category : #accessing }
@@ -40,7 +40,9 @@ TVertexTrait >> height [
 
 { #category : #accessing }
 TVertexTrait >> inDegree [
-	^ self explicitRequirement
+	"Returns in degree of a vertex"
+
+	^ self inNeighbourhood size
 ]
 
 { #category : #accessing }
@@ -48,33 +50,24 @@ TVertexTrait >> inNeighbourhood [
 	^ self explicitRequirement
 ]
 
-{ #category : #'as yet unclassified' }
-TVertexTrait >> measureDimensions: aVertex [
-	"Sets dimensions to given vertex."
-
-	^ Dictionary with: #width -> aVertex width with: #height -> aVertex height
-]
-
 { #category : #accessing }
-TVertexTrait >> neighbourhood [
-	^ self explicitRequirement
+TVertexTrait >> neighbourhood [ 
+	"Returns a neighborhood for vertex of undirected graph"
+	
+   ^self outNeighbourhood union: self inNeighbourhood
+  
 ]
 
 { #category : #accessing }
 TVertexTrait >> outDegree [
-	^ self explicitRequirement
+	"Returns out degree of a vertex"
+
+	^ self outNeighbourhood size
 ]
 
 { #category : #accessing }
 TVertexTrait >> outNeighbourhood [
 	^ self explicitRequirement
-]
-
-{ #category : #'as yet unclassified' }
-TVertexTrait >> outNeighbourhoodFromVertex: aVertex [
-	"Returns out neighborhood of a given vertex."
-	
-	^aVertex outNeighbourhood 
 ]
 
 { #category : #accessing }

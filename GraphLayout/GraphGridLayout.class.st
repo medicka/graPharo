@@ -21,8 +21,8 @@ GraphGridLayout >> doExecute: elements [
 	elements
 		do: [ :element | 
 			translator translateTopLeftOf: element to: pointer.
-			width := (element measureDimensions: element) at: #width.
-			height := (element measureDimensions: element) at: #height.
+			width := element width.
+			height := element height.
 			pointer := (pointer x + width + self gapSize) @ pointer y.
 			lineItemCount := lineItemCount + 1.
 			maxLastLineHeight := maxLastLineHeight max: height .

@@ -46,28 +46,29 @@ GraphTranslator >> translate: element to: newPosition direction: aDirection [
 ]
 
 { #category : #'as yet unclassified' }
-GraphTranslator >> translateBottomLeftOf: element to: newPosition [ 
+GraphTranslator >> translateBottomLeftOf: element to: newPosition [
 	"Translate the bottom left corner of the element"
-	|w h|
-	w:= newPosition x  + (((element measureDimensions: element) at: #width)/2) .
-	h:= newPosition y  - (((element measureDimensions: element) at: #height)/2).
-	self translate: element to: (w@h) direction: 1@1
+
+	| w h |
+	w := newPosition x + (element width / 2).
+	h := newPosition y - (element height / 2).
+	self translate: element to: w @ h direction: 1 @ 1
 ]
 
 { #category : #'as yet unclassified' }
 GraphTranslator >> translateBottomRightOf: element to: newPosition [ 
 	"Translate the bottom right corner of the element"
-	|w h|
-	w:= newPosition x  - (((element measureDimensions: element) at: #width)/2) .
-	h:= newPosition y  - (((element measureDimensions: element) at: #height)/2).
-	self translate: element to: (w@h) direction: 1@1
+	| w h |
+	w := newPosition x - (element width / 2).
+	h := newPosition y - (element height / 2).
+	self translate: element to: w @ h direction: 1 @ 1
 ]
 
 { #category : #'public - translating' }
 GraphTranslator >> translateTopLeftOf: element to: newPosition [ 
 	"Translate the top left corner of the element"
-	|w h|
-	w:= newPosition x  + (((element measureDimensions: element) at: #width)/2) .
-	h:= newPosition y  + (((element measureDimensions: element) at: #height)/2).  
-	self translate: element to: (w@h) direction: 1 @ 1
+		| w h |
+	w := newPosition x + (element width / 2).
+	h := newPosition y + (element height / 2).
+	self translate: element to: w @ h direction: 1 @ 1
 ]

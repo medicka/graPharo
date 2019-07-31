@@ -7,8 +7,10 @@ Trait {
 }
 
 { #category : #comparing }
-TEdgeTrait >> equals: anEdge [
-	^ self explicitRequirement
+TEdgeTrait >> equals: edge [
+	"Compares self(edge on which we are working on) to edge."
+
+	^ self fromVertex = edge fromVertex and: [ self toVertex = edge toVertex ]
 ]
 
 { #category : #'instance creation' }

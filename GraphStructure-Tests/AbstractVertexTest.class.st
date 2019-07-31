@@ -1,3 +1,6 @@
+"
+I represent a collection of test for abstract vertex.
+"
 Class {
 	#name : #AbstractVertexTest,
 	#superclass : #TestCase,
@@ -28,9 +31,9 @@ AbstractVertexTest >> newInstance [
 AbstractVertexTest >> testAttributes [
 	"Testing of adding of attributes dictionary to a vertex."
 
-	| v |
-	v := self newInstance.
-	self assert: v attributes notNil 
+	| vertex |
+	vertex := self newInstance.
+	self assert: vertex attributes notNil 
 ]
 
 { #category : #tests }
@@ -38,58 +41,18 @@ AbstractVertexTest >> testCompositeMargin [
 	"Testing of setting a margine to a vertex.
 	Expected result 10@10"
 
-	| v |
-	v := self newInstance.
-	self assert: v compositeMargin equals: 10@10 
+	| vertex |
+	vertex := self newInstance.
+	self assert: vertex compositeMargin equals: 10@10 
 ]
 
 { #category : #tests }
 AbstractVertexTest >> testEncompassingRectangle [
 	"Testing of making a encompasing rectangle around a given vertex."
 
-	| v |
-	v := self newInstance.
-	self assert: v encompassingRectangle notNil  
-]
-
-{ #category : #tests }
-AbstractVertexTest >> testInDegree [
-  "Testing of a method that calculates in degree of a vertex.
-	For vertex v1 expected result is 2.
-	For vertex v4 expected result is 1."
-
-	|tmp v1 v2 v3 v4|
-	tmp := Graph new.
-	v1 := tmp addVertexWithValue: 4.
-	v2 := tmp addVertexWithValue: 3.
-	v3 := tmp addVertexWithValue: 7.
-	v4 := tmp addVertexWithValue: 1.
-	tmp addEdgeFrom: v4 to: v2.
-	tmp addEdgeFrom: v3 to: v1.
-	tmp addEdgeFrom: v4 to: v1.
-	tmp addEdgeFrom: v3 to: v4.
-	self assert: (v1 inDegree) equals: 2
-]
-
-{ #category : #tests }
-AbstractVertexTest >> testOutDegree [
-  "Testing of a method that calculates out degree of a vertex.
-	For vertex v4 expected result is 2.
-	For vertex v3 expected result is 2.
-	For vertex v1 expected result is 1."
-
-	|tmp v1 v2 v3 v4|
-	tmp := Graph new.
-	v1 := tmp addVertexWithValue: 4.
-	v2 := tmp addVertexWithValue: 3.
-	v3 := tmp addVertexWithValue: 7.
-	v4 := tmp addVertexWithValue: 1.
-	tmp addEdgeFrom: v4 to: v2;
-		addEdgeFrom: v3 to: v1;
-		addEdgeFrom: v4 to: v1;
-		addEdgeFrom: v1 to: v4; 
-		addEdgeFrom: v3 to: v4.
-	self assert: (v1 outDegree) equals: 1
+	| vertex |
+	vertex := self newInstance.
+	self assert: vertex encompassingRectangle notNil  
 ]
 
 { #category : #tests }
@@ -110,10 +73,10 @@ AbstractVertexTest >> testSetNewHeight [
 	"Testing of changing height of a vertex.
 	For new height 20, expected result is 20."
 
-	| v |
-	v := self newInstance.
-	v setNewHeight: 20.
-	self assert: v height equals: 20
+	| vertex |
+	vertex := self newInstance.
+	vertex setNewHeight: 20.
+	self assert: vertex height equals: 20
 ]
 
 { #category : #tests }
@@ -121,27 +84,8 @@ AbstractVertexTest >> testSetNewWidth [
 	"Testing of changing width of a vertex.
 	For new width 6, expected result is 6."
 
-	| v |
-	v := self newInstance.
-	v setNewWidth: 6.
-	self assert: v width equals: 6
-]
-
-{ #category : #tests }
-AbstractVertexTest >> testUndirectedDegree [
-  "Testing of a method that calculates degree of a vertex in an undirected graph.
-	For vertex v4 expected result is 3."
-
-	|tmp v1 v2 v3 v4|
-	tmp := Graph new.
-	tmp undirected: true.
-	v1 := tmp addVertexWithValue: 4.
-	v2 := tmp addVertexWithValue: 3.
-	v3 := tmp addVertexWithValue: 7.
-	v4 := tmp addVertexWithValue: 1.
-	tmp addEdgeFrom: v4 to: v2.
-	tmp addEdgeFrom: v3 to: v1.
-	tmp addEdgeFrom: v4 to: v1.
-	tmp addingUndirectedEdgeFrom: v3 to: v4.
-	self assert: (v4 degree) equals: 3
+	| vertex |
+	vertex := self newInstance.
+	vertex setNewWidth: 6.
+	self assert: vertex width equals: 6
 ]
