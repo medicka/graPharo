@@ -16,6 +16,6 @@ Execute the following incantation in a Playground:
 ```Smalltalk
 Metacello new
  baseline:'GraphLayout';
- repository: 'github://medicka/PharoGSoC:master';
+ repository: 'github://medicka/graPharo:master';
  load.
 ```
