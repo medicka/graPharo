@@ -1,4 +1,4 @@
-# PharoGSoC
+# graPharo
 Repository for my Google Summer of Code project
 
 <p>Project I will be working on is: <strong>Graph library with layouting algorithms</strong>. I will create a separate reusable library for graph structure and traversing algorithms. Also, it will contain various algorithms for different layouts for graph visualisation.</p>
