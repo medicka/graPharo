@@ -73,7 +73,7 @@ GraphTreeLayoutTest >> testDoExecute [
 		add: v4;
 		add: v5.
 	layout := GraphTreeLayout new.
-	layout doExecute: used.
+	layout on: used.
 	self assert: (v4 position roundDownTo: 0.01) equals: 10.0@47.5
 ]
 

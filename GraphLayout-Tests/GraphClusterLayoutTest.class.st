@@ -74,7 +74,7 @@ GraphClusterLayoutTest >> testDoExecute [
 		add: v4;
 		add: v5.
 	layout := GraphClusterLayout new.
-	layout doExecute: used.
+	layout on: used.
 	self assert: (v2 position roundDownTo: 0.01) equals: 84.69 @ -34.33
 ]
 

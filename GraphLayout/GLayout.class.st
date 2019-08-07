@@ -18,6 +18,13 @@ GLayout class >> isAbstract [
 	^ (self name beginsWith: 'Graph') not
 ]
 
+{ #category : #applying }
+GLayout >> applyOn: elements [
+	"Return quickly if there is nothing to do"
+	elements isEmpty ifTrue: [ ^ self ].
+	self executeOnElements: elements
+]
+
 { #category : #hook }
 GLayout >> doExecute: elements [ 
 	"Performs the layout."
@@ -82,6 +89,11 @@ GLayout >> leftContourOf: aNode [
 { #category : #setter }
 GLayout >> leftContourOf: aNode put: aValue [
 	aNode attributes at: #leftContour put: aValue
+]
+
+{ #category : #applying }
+GLayout >> on: elements [
+	self applyOn: elements
 ]
 
 { #category : #getter }
