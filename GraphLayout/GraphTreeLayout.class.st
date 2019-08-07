@@ -181,6 +181,18 @@ GraphTreeLayout >> rearrangeByLayersRight: aGraph [
 
 { #category : #'as yet unclassified' }
 GraphTreeLayout >> rearrangeByLayersTop: aGraph [ 
+	| cursor layerDepthSize |
+	cursor := self topGap.
+	nodesByLayer
+		do: [ :eachSetOfNodes | 
+			layerDepthSize := eachSetOfNodes
+				inject: 0
+				into: [ :max :eachNode | 
+					translator
+						translate: eachNode
+						to: (eachNode position x) @ (cursor + (eachNode height /2)).
+					max max: eachNode height ].
+			cursor := cursor + layerDepthSize + self horizontalGap ]
 ]
 
 { #category : #'as yet unclassified' }

@@ -231,7 +231,7 @@ GraphTreeLayoutTest >> testRearrangeByLayersTop [
 	For v5, expected result 80.0@12.5.
 	For v4, expected result 15.0@47.5.
 	For v3, expected result 30@12.5 .
-	For v2, expected result 10.0@82.5.
+	For v2, expected result 10.0@92.5.
 	For v1, expected result 50@52.5."
 
 	| gr v1 v2 v3 v4 v5 layout used |
@@ -257,7 +257,7 @@ GraphTreeLayoutTest >> testRearrangeByLayersTop [
 	layout := GraphTreeLayout new.
 	layout isLayered: true.
 	layout doExecute: used.
-	self assert: (v2 position roundDownTo: 0.01) equals: 10.0@82.5
+	self assert: (v2 position roundDownTo: 0.01) equals: 10.0@92.5
 ]
 
 { #category : #tests }
