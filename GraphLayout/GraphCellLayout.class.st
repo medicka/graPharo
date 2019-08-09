@@ -53,7 +53,7 @@ GraphCellLayout >> doExecute: elements [
 		columnCount > lineItemSize
 			ifTrue: [ 
 				columnCount := 1.
-				pointer := (((columnsWidths at: 1) / 2) @ pointer y)  + (0 @ ((rowHeights at: rowCount) / 2)).
+				pointer := (((columnsWidths at: 1) / 2) @ pointer y)  + (0 @ ((rowHeights at: rowCount) / 2) + (0 @ self gapSize )).
 				rowCount := rowCount + 1.
 				rowCount <= rowHeights size 
 					ifTrue: [ pointer := pointer + (0 @ ((rowHeights at: rowCount) / 2)) ].				 

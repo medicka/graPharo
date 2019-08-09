@@ -15,8 +15,8 @@ GraphCellLayoutTest >> actualClass [
 { #category : #tests }
 GraphCellLayoutTest >> testDoExecute [
 	"A test that checks execution of cell layout. For easier testing, we transfer the set of vertices 	to LinkedList, so we can have ordered collection. Have in mind that position stors center of 	vertex.
-	For v4, expected result 125.0@42.5 .
-	For v3, expected result 25.0@42.5 .
+	For v4, expected result 125.0@57.5 .
+	For v3, expected result 25.0@57.5 .
 	For v2, expected result 125.0@7.5 .
 	For v1, expected result 25.0@7.5 ." 
 	
