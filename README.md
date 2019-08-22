@@ -9,6 +9,8 @@ I will be documenting progress on my blog [Pharokeepers](https://pharokeepers.gi
 
 You can read about Google Summer of Code on this link: [GSoC](https://summerofcode.withgoogle.com/) , about [Pharo](https://pharo.org/) and if you are interested you can also read my [proposal](https://docs.google.com/document/d/1V8_HaZnxYsCfaiZs4vI1C5Dh4TvRPz-H51aYOuY9lFA/edit?usp=sharing) for this project.
 
+As a final part of the project, I have created a [booklet](graPharo.pdf) that documents what is contained in the library and how to use it.
+
 ## Installation 
 Execute the following incantation in a Playground:
 
