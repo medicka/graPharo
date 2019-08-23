@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'orientation'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-TreeLayout'
 }
 
 { #category : #getter }

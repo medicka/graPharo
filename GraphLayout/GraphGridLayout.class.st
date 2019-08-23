@@ -4,7 +4,7 @@ I represent a grid layout class.
 Class {
 	#name : #GraphGridLayout,
 	#superclass : #GAbstractGridLayout,
-	#category : #GraphLayout
+	#category : #'GraphLayout-GridLikeLayout'
 }
 
 { #category : #hook }

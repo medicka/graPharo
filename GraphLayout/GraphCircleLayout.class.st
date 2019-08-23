@@ -4,7 +4,7 @@ I represent a circle layout class.
 Class {
 	#name : #GraphCircleLayout,
 	#superclass : #GAbstractCircleLayout,
-	#category : #GraphLayout
+	#category : #'GraphLayout-CircleLayout'
 }
 
 { #category : #hook }

@@ -12,7 +12,7 @@ Class {
 		'verticalOutGap',
 		'alignment'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-LineLayout'
 }
 
 { #category : #setter }

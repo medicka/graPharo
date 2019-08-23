@@ -10,7 +10,7 @@ Class {
 		'cachedChildren',
 		'cachedParents'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-TreeLayout'
 }
 
 { #category : #getter }

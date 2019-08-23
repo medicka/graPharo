@@ -8,7 +8,7 @@ Class {
 		'gapSize',
 		'lineItemsCountBlock'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-GridLikeLayout'
 }
 
 { #category : #accessing }

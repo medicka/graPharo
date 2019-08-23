@@ -4,7 +4,7 @@ I represent a circle layout in which elements are equidistant from each other: t
 Class {
 	#name : #GraphEquidistentCircleLayout,
 	#superclass : #GAbstractWeightedCircleLayout,
-	#category : #GraphLayout
+	#category : #'GraphLayout-CircleLayout'
 }
 
 { #category : #'as yet unclassified' }

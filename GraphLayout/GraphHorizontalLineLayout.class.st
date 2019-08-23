@@ -4,7 +4,7 @@ I represent a horizontal line layout class.
 Class {
 	#name : #GraphHorizontalLineLayout,
 	#superclass : #GAbstractLineLayout,
-	#category : #GraphLayout
+	#category : #'GraphLayout-LineLayout'
 }
 
 { #category : #calculating }

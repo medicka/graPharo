@@ -4,7 +4,7 @@ I represent a circle layout that gives more space to big elements and fewer spac
 Class {
 	#name : #GraphWeightedCircleLayout,
 	#superclass : #GAbstractWeightedCircleLayout,
-	#category : #GraphLayout
+	#category : #'GraphLayout-CircleLayout'
 }
 
 { #category : #hook }

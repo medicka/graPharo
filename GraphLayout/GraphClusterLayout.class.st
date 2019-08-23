@@ -9,7 +9,7 @@ Class {
 		'maxLayer',
 		'maxAbcissa'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-ClusterLayout'
 }
 
 { #category : #calculating }

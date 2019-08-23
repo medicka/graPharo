@@ -11,7 +11,7 @@ Class {
 		'nodesByLayer',
 		'isLayered'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-TreeLayout'
 }
 
 { #category : #accessing }

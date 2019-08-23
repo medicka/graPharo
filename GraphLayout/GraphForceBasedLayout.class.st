@@ -23,7 +23,7 @@ Class {
 		'weights',
 		'oldPositions'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-ForceBasedLayout'
 }
 
 { #category : #accumulate }

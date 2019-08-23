@@ -10,7 +10,7 @@ Class {
 	#classVars : [
 		'defaultTranslator'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-Translator'
 }
 
 { #category : #accessing }

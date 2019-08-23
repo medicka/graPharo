@@ -9,7 +9,7 @@ Class {
 		'translateElement',
 		'inCellPosition'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-GridLikeLayout'
 }
 
 { #category : #accessing }

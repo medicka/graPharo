@@ -4,7 +4,7 @@ I represent a direct translation of vertices.
 Class {
 	#name : #GraphDirectTranslator,
 	#superclass : #GraphTranslator,
-	#category : #GraphLayout
+	#category : #'GraphLayout-Translator'
 }
 
 { #category : #testing }

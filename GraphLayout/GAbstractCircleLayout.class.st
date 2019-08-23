@@ -10,7 +10,7 @@ Class {
 		'initialAngle',
 		'initialIncrementalAngle'
 	],
-	#category : #GraphLayout
+	#category : #'GraphLayout-CircleLayout'
 }
 
 { #category : #hook }

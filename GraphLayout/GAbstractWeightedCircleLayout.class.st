@@ -4,7 +4,7 @@ I represent an abstract root class of weighted circle layout. Look at the class 
 Class {
 	#name : #GAbstractWeightedCircleLayout,
 	#superclass : #GraphCircleLayout,
-	#category : #GraphLayout
+	#category : #'GraphLayout-CircleLayout'
 }
 
 { #category : #hook }
