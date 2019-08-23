@@ -15,7 +15,7 @@ GraphTreeLayout >> alreadyLayoutedNodes [
 	^alreadyLayoutedNodes  
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> bottomLayout: aNodeCollection atPoint: aPoint atLayer: aNumber [
 	| childrenPosition x y |
 	aNodeCollection isEmpty ifTrue: [ ^ 0 ].
@@ -61,7 +61,7 @@ GraphTreeLayout >> initialize [
 	horizontalGap := 20
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> layout: aGroup atPoint: aPoint atLayer: aLayer withOrientation: anOrientation [
 	anOrientation == #top
 		ifTrue: [ self topLayout: aGroup atPoint: aPoint atLayer: aLayer ].
@@ -85,7 +85,7 @@ GraphTreeLayout >> layout: aGroup atPoint: aPoint atLayer: aLayer withOrientatio
 			self rightLayout: aGroup atPoint: point atLayer: aLayer ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> leftLayout: aNodeCollection atPoint: aPoint atLayer: aNumber [
 	| treeSize childrenPosition x y middleOfTree |
 	aNodeCollection isEmpty
@@ -109,12 +109,12 @@ GraphTreeLayout >> leftLayout: aNodeCollection atPoint: aPoint atLayer: aNumber 
 	^ y - aPoint y - self verticalGap
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #setter }
 GraphTreeLayout >> orientation: anOrientation [
 	orientation := anOrientation 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> rearrangeByLayers: aGraph [
 		(orientation == #top)
 		ifTrue: [self rearrangeByLayersTop: aGraph ].
@@ -127,7 +127,7 @@ GraphTreeLayout >> rearrangeByLayers: aGraph [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> rearrangeByLayersBottom: aGraph [
 	| node cursor layerDepthSize |
 	node := (nodesByLayer at: 1) first.
@@ -144,7 +144,7 @@ GraphTreeLayout >> rearrangeByLayersBottom: aGraph [
 			cursor := cursor - layerDepthSize - self horizontalGap ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> rearrangeByLayersLeft: aGraph [
 	| cursor layerDepthSize |
 	cursor := self topGap.
@@ -160,7 +160,7 @@ GraphTreeLayout >> rearrangeByLayersLeft: aGraph [
 			cursor := cursor + layerDepthSize + self verticalGap ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> rearrangeByLayersRight: aGraph [
 	| node separation cursor layerDepthSize |
 	node := (nodesByLayer at: 1) first.
@@ -179,7 +179,7 @@ GraphTreeLayout >> rearrangeByLayersRight: aGraph [
 			cursor := cursor - layerDepthSize - self verticalGap ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> rearrangeByLayersTop: aGraph [ 
 	| cursor layerDepthSize |
 	cursor := self topGap.
@@ -195,7 +195,7 @@ GraphTreeLayout >> rearrangeByLayersTop: aGraph [
 			cursor := cursor + layerDepthSize + self horizontalGap ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> rightLayout: aNodeCollection atPoint: aPoint atLayer: aNumber [
 	| childrenPosition x y |
 	aNodeCollection isEmpty ifTrue: [ ^ 0 ].
@@ -212,7 +212,7 @@ GraphTreeLayout >> rightLayout: aNodeCollection atPoint: aPoint atLayer: aNumber
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphTreeLayout >> topLayout: aNodeCollection atPoint: aPoint atLayer: aNumber [
 	| treeSize childrenPosition x y middleOfTree |
 	aNodeCollection isEmpty

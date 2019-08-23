@@ -28,7 +28,7 @@ TVertexTrait >> extent [
 	^ self dimension
 ]
 
-{ #category : #testing }
+{ #category : #checking }
 TVertexTrait >> hasChildren [
 	^ self outNeighbourhood notEmpty
 ]
@@ -90,7 +90,7 @@ TVertexTrait >> setNewWidth: aNumber [
 	^ self explicitRequirement
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #checking }
 TVertexTrait >> vertexExists: aVertex in: aCollection [
 	"Inspects if given vertex exists in given collection."
 

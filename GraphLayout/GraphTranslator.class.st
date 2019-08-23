@@ -31,21 +31,21 @@ GraphTranslator >> defaultTranslator [
 	^defaultTranslator
 ]
 
-{ #category : #'public - translating' }
+{ #category : #transitions }
 GraphTranslator >> translate: element to: newPosition [ 
 	"Translate of the center of the element"
 	
 	self subclassResponsibility 
 ]
 
-{ #category : #'public - translating' }
+{ #category : #transitions }
 GraphTranslator >> translate: element to: newPosition direction: aDirection [ 
 	"Translate the bottom left corner of the element"
 
 	self translate: element to: newPosition" + (element extent / 2 * aDirection)"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #transitions }
 GraphTranslator >> translateBottomLeftOf: element to: newPosition [
 	"Translate the bottom left corner of the element"
 
@@ -55,7 +55,7 @@ GraphTranslator >> translateBottomLeftOf: element to: newPosition [
 	self translate: element to: w @ h direction: 1 @ 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #transitions }
 GraphTranslator >> translateBottomRightOf: element to: newPosition [ 
 	"Translate the bottom right corner of the element"
 	| w h |
@@ -64,7 +64,7 @@ GraphTranslator >> translateBottomRightOf: element to: newPosition [
 	self translate: element to: w @ h direction: 1 @ 1
 ]
 
-{ #category : #'public - translating' }
+{ #category : #transitions }
 GraphTranslator >> translateTopLeftOf: element to: newPosition [ 
 	"Translate the top left corner of the element"
 		| w h |

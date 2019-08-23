@@ -7,7 +7,7 @@ Class {
 	#category : #'GraphLayout-CircleLayout'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #calculating }
 GraphEquidistentCircleLayout >> calculatingFunctionsFor: aVertex withRadius: aRad [ 
 	|position x y|
 	position := aVertex  position.

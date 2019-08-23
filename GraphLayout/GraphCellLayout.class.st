@@ -17,7 +17,7 @@ GraphCellLayout >> align [
 	^ align
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #hook }
 GraphCellLayout >> doExecute: elements [ 
 	
 	| lineItemSize pointer columnCount rowCount maxHeight columnsWidths rowHeights |
@@ -74,7 +74,7 @@ GraphCellLayout >> initialize [
 	self leftCentered
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #positioning }
 GraphCellLayout >> leftCentered [
 	align := #left.
 

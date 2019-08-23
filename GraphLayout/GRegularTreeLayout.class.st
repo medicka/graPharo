@@ -21,13 +21,13 @@ GRegularTreeLayout >> atLayer: aNumber add: aNodeCollection [
 	collection addAll: aNodeCollection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'find-select' }
 GRegularTreeLayout >> childrenFor: aNode except: aNodeCollection [
 	^ (self childrenFor: aNode)
 		reject: [ :each | aNodeCollection includes: each ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'find-select' }
 GRegularTreeLayout >> findHeighest: aGroup [
 	| max |
 	max := aGroup asOrderedCollection first.
@@ -38,7 +38,7 @@ GRegularTreeLayout >> findHeighest: aGroup [
 	^ max
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'find-select' }
 GRegularTreeLayout >> findWidthest: aGroup [
 	| max |
 	max := aGroup asOrderedCollection first.
@@ -57,7 +57,7 @@ GRegularTreeLayout >> initialize [
 	isLayered := false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #getter }
 GRegularTreeLayout >> isLayered [
 	"Is the layout layered"
 	
@@ -75,7 +75,7 @@ GRegularTreeLayout >> leftGap [
 	^ leftGap
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #position }
 GRegularTreeLayout >> leftTopOfHeighest: aGroup [
 	| max point |
 	max := self findHeighest: aGroup .
@@ -93,7 +93,7 @@ GRegularTreeLayout >> nodesByLayer: anObject [
 	 nodesByLayer := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #position }
 GRegularTreeLayout >> rightBottomOfWidthest: aGroup [
 	| max point |
 	max := self findWidthest: aGroup .
